@@ -1,29 +1,79 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-import getters from './getters'
-// import user from './modules/user'
-// import common from './modules/common'
-import demo from './modules/demo'
-import schoolDevice from './modules/schoolDevice'
-import func from './modules/func'
-import home from './modules/home'
-import login from './modules/login'
-import course from './modules/course'
-import personal from './modules/personal'
-Vue.use(Vuex)
-const store = () => {
-  return new Vuex.Store({
-    modules: {
-      demo,
-      schoolDevice,
-      func,
-      home,
-      login,
-      course,
-      personal,
-      home
-    },
-    getters
+import {validFeeds} from '~/common/api'
+import {lazy} from '~/common/utils'
+import {CancelToken} from 'axios'
+export const state = () => {
+  const s = {
+    items: {},
+    users: {},
+    feeds: {}
+  }
+  validFeeds.forEach((feed)=>{
+    s.feeds[feed] = {}
   })
+  return s
 }
-export default store
+export const mutations = {
+  SET_FEED: (state, {feed,ids,page}) => {
+    Vue.set(state.feeds[feed],page,ids)
+  },
+  SET_ITEM: (state,{item}) => {
+    if(item){
+      Vue.set(state.items,item.id,item)
+    }
+  },
+  SET_ITEMS:(state,{items}) => {
+    items.forEach((item)=>{
+      if(item){
+        Vue.set(state.items,item.id,item)
+      }
+    })
+  },
+  SET_USER: (state,{id,user}) => {
+    Vue.set(state.users,id,user||false)
+  }
+}
+export const actions = {
+  FETCH_FEED({ commit, state }, { feed, page, prefetch }) {
+    // Don't priorotize already fetched feeds
+    if (state.feeds[feed][page] && state.feeds[feed][page].length) {
+      prefetch = true
+    }
+    if (!prefetch) {
+      if (this.feedCancelSource) {
+        this.feedCancelSource.cancel(
+          'priorotize feed: ' + feed + ' page: ' + page
+        )
+      }
+      this.feedCancelSource = CancelToken.source()
+    }
+    return lazy(
+      (items) => {
+        const ids = items.map(item => item.id)
+        commit('SET_FEED', { feed, ids, page })
+        commit('SET_ITEMS', { items })
+      },
+      () =>
+        this.$axios.$get(`/${feed}?page=${page}`, {
+          cancelToken: this.feedCancelSource && this.feedCancelSource.token
+        }),
+      (state.feeds[feed][page] || []).map(id => state.items[id])
+    )
+  },
+
+  FETCH_ITEM({ commit, state }, { id }) {
+    return lazy(
+      item => commit('SET_ITEM', { item }),
+      () => this.$axios.$get(`/item/${id}`),
+      Object.assign({ id, loading: true, comments: [] }, state.items[id])
+    )
+  },
+
+  FETCH_USER({ state, commit }, { id }) {
+    return lazy(
+      user => commit('SET_USER', { id, user }),
+      () => this.$axios.$get(`/user/${id}`),
+      Object.assign({ id, loading: true }, state.users[id])
+    )
+  }
+}

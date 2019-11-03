@@ -28,8 +28,17 @@ export default {
   /*
   ** Plugins to load before mounting the App
   */
+ devModules: [
+    '@nuxtjs/pwa',
+    '@nuxtjs/axios'
+  ],
+
+  axios: {
+    baseURL: 'https://api.hackerwebapp.com'
+  },
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '~/plugins/filters'
   ],
   /*
   ** Nuxt.js dev-modules
