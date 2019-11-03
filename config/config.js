@@ -1,0 +1,7 @@
+export const baseUrl = 'http://apiV2-stucard.xueerqin.net'
+export const socketUrl = ''
+export const baseUrl2 = 'http://api-classroomorder.xueerqin.net'
+export const loginUrl = ''
+export const home= ''
+export const course= ''
+export const personalUrl = ''
