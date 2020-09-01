@@ -49,11 +49,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this.menu)
     this.getMenu()
-  },
-  fetch ({store, params}) {
-    return this.$store.dispatch('user/GetMenu')
   },
   methods: {
     goUrl (path) {

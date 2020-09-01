@@ -6,7 +6,7 @@
           <div class="home-form">
             <el-form ref="ruleForm" label-width="50px" @submit.native.prevent>
               <el-row :gutter="10">
-                <el-col :span="4">
+                <el-col :span="6">
                   <el-form-item label="学段" prop="stageId">
                     <el-select v-model.trim="stageId" placeholder="请选择" size="mini" clearable>   
                       <el-option v-for="(item, index) in stageArr" :key="index" :label="item.name" :value="item.id"></el-option>
