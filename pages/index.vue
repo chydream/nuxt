@@ -93,11 +93,11 @@ export default {
         index: false,
         selected: true,
         cloumn: [
-          { prop: 'name', label: '年级名称', align: 'center', sortable: true },
-          { prop: 'schoolStageName', label: '学段', align: 'center', sortable: true },
-          { prop: 'code', label: '年级编码', align: 'center', sortable: true },
-          { prop: 'serialNumber', label: '序列号', align: 'center', sortable: true },
-          { prop: 'displayOrder', label: '排序号', align: 'center', sortable: true }
+          { prop: "uid", label: "分类ID", align: "center" },
+          { prop: "industry", label: "所属行业", align: "center" },
+          { prop: "industryClassification", label: "所属行业类别", align: "center"},
+          { prop: "created_at", label: "创建时间", align: "center" },
+          { prop: "count", label: "数量", align: "center" }
         ]
       },
       tableData: [
@@ -127,8 +127,7 @@ export default {
     }
   },
   mounted () {
-    // this.handleList(this.selectName, this.selectStageId)
-    // this.getStageList()
+    this.handleList(); // 获取列表详情
   },
   head () {
     return {
@@ -229,24 +228,18 @@ export default {
       this.rowTitle = row.name
     },
     // 列表接口
-    handleList (name, stageId) {
-      this.tableLoading = true
-      var params = {
-        page: this.tablePage,
-        limit: this.page.pageSize,
-        name: name,
-        stageId: stageId
-      }
-      this.$store.dispatch('publicData/GradesGet', params).then(res => {
-        var data = res.data
-        this.tableData = data
-        this.page.total = res.count
-        this.page.currentPage = this.tablePage
-        this.tableLoading = false
-      }).catch(err => {
-        this.$message({type: 'error', message: err.resp_msg})
-        this.tableLoading = false
-      })
+    handleList (keyword, status) {
+      this.tableLoading = true;
+      var params = {};
+      this.$store.dispatch("shares/SharesCategoryGet", params).then((res) => {
+          console.log(res)
+          this.tableData = res
+          this.tableLoading = false;
+        })
+        .catch((err) => {
+          console.log(err);
+          this.tableLoading = false;
+        });
     },
     // 关闭弹窗
     closeDialog (params) {
