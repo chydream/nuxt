@@ -1,10 +1,9 @@
-// import Mock from 'mockjs'
 let menu = {
   admin: [
     {
       id: 12,
-      label: '功能设置',
-      href: '/fee-config/func',
+      label: '首页',
+      href: '/',
       icon: 'fa fa-file-text',
       permission: ['view', 'add', 'delete', 'edit'],
       show: true,
@@ -12,17 +11,8 @@ let menu = {
     },
     {
       id: 12,
-      label: '功能包设置',
-      href: '/fee-config/func-pack',
-      icon: 'fa fa-file-text',
-      permission: ['view', 'add', 'delete', 'edit'],
-      show: true,
-      children: []
-    },
-    {
-      id: 12,
-      label: '计费模式设置',
-      href: '/fee-config/bill-model',
+      label: '年级',
+      href: '/grade',
       icon: 'fa fa-file-text',
       permission: ['view', 'add', 'delete', 'edit'],
       show: true,
@@ -41,5 +31,4 @@ let menu = {
     }
   ]
 }
-// Mock.mock(/\/user\/menu/, 'post', menu)
 export default menu

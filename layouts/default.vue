@@ -1,129 +1,115 @@
 <template>
-  <div id="app">
-    <header class="header">
-      <nav class="inner" role="navigation">
-        <router-link to="/" exact>
-          <img class="logo" src="https://github.com/nuxt/hackernews/blob/master/assets/logo.svg" alt="logo">
-        </router-link>
-        <router-link v-for="(list, key) in feeds" :key="key" :to="`/${key}`">
-          {{ list.title }}
-        </router-link>
-        <a class="github" href="https://github.com/nuxt/hackernews" target="_blank" rel="noopener banner">
-          Built with Nuxt.js
-        </a>
-      </nav>
-    </header>
-    <nuxt nuxt-child-key="none" role="main" />
+  <div class="default">
+    <n-header></n-header>
+    <div class="main" :style="{height:height}">
+      <Nuxt />
+    </div>
+    <n-footer></n-footer>
   </div>
 </template>
 
 <script>
-import { feeds } from '~/common/api'
+import nHeader from './header'
+import nFooter from './footer'
+import {getClientHeight} from '@/util/tool'
 export default {
-  head() {
-    const host = process.server
-      ? this.$ssrContext.req.headers.host
-      : window.location.host
-    return {
-      link: [
-        // We use $route.path since we don't use query parameters
-        { rel: 'canonical', href: `https://${host}${this.$route.path}` }
-      ]
-    }
+  name: 'default',
+  components:{
+    nHeader,
+    nFooter
   },
   computed: {
-    feeds: () => feeds
+    height () {
+      var height = 500
+      if (process.client) {
+        height = getClientHeight() - 120
+      }
+      return height + 'px'
+    }
+  },
+  mounted () {
+    this.getLogin()
+  },
+  methods: {
+    getLogin () {
+      var params = {
+        username: 'admin',
+        password: '123456'
+      }
+      this.$store.dispatch('user/Login', params).then(res => {
+        // console.log(res)
+      })
+    },
+    setProgress () {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => this.$nuxt.$loading.finish(), 5000)
+      })
+    }
   }
 }
 </script>
-
-<style lang="stylus">
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  background-color: lighten(#eceef1, 30%);
-  margin: 0;
-  padding: 0;
-  color: #2E495E;
-  overflow-y: scroll;
+<style lang="scss">
+@import url('../style/reset.css');
+html,body{
+  width: 100%;
+  height: 100%;
 }
-a {
-  color: #2E495E;
-  text-decoration: none;
+#app{
+  width: 100%;
+  height: 100%;
 }
-.header {
-  background-color: #2E495E;
-  z-index: 999;
-  height: 55px;
-  .inner {
-    max-width: 800px;
-    box-sizing: border-box;
-    margin: 0px auto;
-    padding: 15px 5px;
-  }
-  a {
-    color: #fff;
-    line-height: 24px;
-    transition: color 0.15s ease;
-    display: inline-block;
-    vertical-align: middle;
-    font-weight: 300;
-    letter-spacing: 0.075em;
-    margin-right: 1.8em;
-    &:hover {
-      color: #fff;
-    }
-    &.router-link-active, &.nuxt-link-active {
-      color: #fff;
-      font-weight: 600;
-    }
-    &:nth-child(6) {
-      margin-right: 0;
-    }
-  }
-  .github {
-    color: #fff;
-    font-size: 0.9em;
-    margin: 0;
-    float: right;
-  }
+:root #app{
+  overflow: hidden;
 }
-.logo {
-  width: 24px;
-  margin-right: 10px;
-  display: inline-block;
-  vertical-align: middle;
+body .el-table th.gutter {
+  display: table-cell !important;
 }
-.view {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
-.appear-active {
-  transition: opacity 0.4s ease;
-}
-.page-enter-active, .page-leave-active {
-  transition: all 0.2s ease;
-}
-.appear, .page-enter, .page-leave-active {
+.page-enter,
+.page-leave-active {
   opacity: 0;
 }
-@media (max-width: 860px) {
-  .header .inner {
-    padding: 15px 30px;
+.default{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .main{
+     width: 1200px;
+    margin: 0 auto;
   }
 }
-@media (max-width: 600px) {
-  .header {
-    .inner {
-      padding: 15px;
+#nprogress .spinner{
+  display: none !important;
+}
+.home-form{
+    .el-form-item{
+        margin-bottom: 0px !important;
     }
-    a {
-      margin-right: 1em;
+    .search-btn{
+        margin-top: 3px;
     }
-    .github {
-      display: none;
-    }
-  }
+}
+.mt-15{
+    margin-top: 10px;
+}
+.mb-15{
+    margin-bottom: 10px;
+}
+.el-tooltip__popper.is-dark{
+  background-color: rgba(50, 50, 50, 0.7) !important;
+}
+.el-tooltip__popper[x-placement^="top"] .popper__arrow{
+  border-top-color: rgba(50, 50, 50, 0.7) !important;
+}
+.el-tooltip__popper[x-placement^="top"] .popper__arrow::after{
+  border-top-color: rgba(50, 50, 50, 0.7) !important;
+  opacity: 0 !important;
+}
+.el-card__body .home-body {
+    margin-top: -15px;
 }
 </style>

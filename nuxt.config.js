@@ -1,9 +1,23 @@
 
 export default {
+  /*
+  ** Nuxt rendering mode
+  ** See https://nuxtjs.org/api/configuration-mode
+  */
   mode: 'universal',
   /*
-  ** Headers of the page
+  ** Nuxt target
+  ** See https://nuxtjs.org/api/configuration-target
   */
+  target: 'server',
+  /*
+  ** Headers of the page
+  ** See https://nuxtjs.org/api/configuration-head
+  */
+ router: {
+    base:"/dist",
+    // middleware: ['checkAuth']
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -13,11 +27,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      // { rel: 'stylesheet', type: 'text/css', href: './element-ui/2.13.2/theme-chalk/index.css' }
+    ],
+    script: [
+      {src: ''}
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
+  // loading: false,
+  // loading: { color: '#409EFF' },
   loading: { color: '#fff' },
   /*
   ** Global CSS
@@ -27,19 +44,18 @@ export default {
   ],
   /*
   ** Plugins to load before mounting the App
+  ** https://nuxtjs.org/guide/plugins
   */
- devModules: [
-    '@nuxtjs/pwa',
-    '@nuxtjs/axios'
-  ],
-
-  axios: {
-    baseURL: 'https://api.hackerwebapp.com'
-  },
   plugins: [
     '@/plugins/element-ui',
-    '~/plugins/filters'
+    '~/plugins/filters',
+    { src: '@/plugins/loading', ssr: false }
   ],
+  /*
+  ** Auto import components
+  ** See https://nuxtjs.org/api/configuration-components
+  */
+  components: true,
   /*
   ** Nuxt.js dev-modules
   */
@@ -49,16 +65,26 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/proxy'
+  ],
+  proxy: [
+    // [
+    //   '/',
+    //   {
+    //     target: 'http://192.168.3.186:9200/', //目标接口域名
+    //     changeOrigin: true, //是否跨域
+    //     pathRewrite: {
+    //       '^/': '/'
+    //     }
+    //   }
+    // ]
   ],
   /*
   ** Build configuration
+  ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
     transpile: [/^element-ui/],
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
+    extend(config, ctx) {}
   }
 }

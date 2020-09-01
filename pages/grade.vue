@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="grade">
     <el-row :gutter="10">
       <el-col :span="24">
         <el-card class="box-card mt-15">
@@ -29,7 +29,7 @@
               <el-button size="mini" @click="handleDeleteAll">批量删除</el-button>
             </div>
           </div>
-          <div class="home-body" style="min-height:500px;">
+          <div class="home-body">
             <cvue-table
               :option="tableOption"
               :data="tableData"
@@ -71,7 +71,7 @@ import cvueTable from '@/components/cvue-table'
 import gradeEdit from './gradeEdit'
 import {getClientHeight} from '@/util/tool'
 export default {
-  name: 'home',
+  name: 'grade',
   components: {
     cvueTable,
     gradeEdit
@@ -132,10 +132,10 @@ export default {
   },
   head () {
     return {
-      title: '首页',
+      title: '年级',
       meta: [
-        { hid: 'description', name: 'description', content: '这个是首页' },
-        { hid: 'keywords', name: 'keywords', content: '首页' }
+        { hid: 'description', name: 'description', content: '这个是年级' },
+        { hid: 'keywords', name: 'keywords', content: '年级' }
       ]
     }
   },
@@ -287,7 +287,7 @@ export default {
 </script>
 
 <style lang="scss">
-.home {
+.grade {
   padding: 0px !important;
   height: auto !important;
   .btn-list {
