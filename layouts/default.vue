@@ -80,7 +80,7 @@ body .el-table th.gutter {
   .main{
     width: 100%;
     height: 100%;
-    padding: 60px 0;
+    padding: 60px 0 70px;
     box-sizing: border-box;
     overflow: auto;
   }
