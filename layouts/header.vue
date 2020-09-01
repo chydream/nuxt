@@ -13,12 +13,11 @@
             <!-- {{userInfo.nickname}} -->admin
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- 修改密码 -->
+          <!-- <el-dropdown-menu slot="dropdown">
             <el-dropdown-item @click.native="handleInfo">个人信息</el-dropdown-item>
             <el-dropdown-item @click.native="handleReset">修改密码</el-dropdown-item>
             <el-dropdown-item divided @click.native="logout('确定要退出吗？')">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
+          </el-dropdown-menu> -->
         </el-dropdown>
       </div>
     </div>

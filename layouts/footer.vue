@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    这里是footer
+    2020 © copyright
   </div>
 </template>
 
