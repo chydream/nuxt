@@ -28,7 +28,7 @@ export default {
     }
   },
   mounted () {
-    this.getLogin()
+    this.handleList()
   },
   methods: {
     getLogin () {
@@ -37,7 +37,7 @@ export default {
         password: '123456'
       }
       this.$store.dispatch('user/Login', params).then(res => {
-        // console.log(res)
+        console.log(res)
       })
     },
     setProgress () {
@@ -45,6 +45,20 @@ export default {
         this.$nuxt.$loading.start()
         setTimeout(() => this.$nuxt.$loading.finish(), 5000)
       })
+    },
+     // 列表接口
+    handleList () {
+      this.tableLoading = true;
+      var params = {};
+      this.$store.dispatch("shares/SharesCategoryGet", params).then((res) => {
+          console.log(res)
+          this.tableData = res
+          this.tableLoading = false;
+        })
+        .catch((err) => {
+          console.log(err);
+          this.tableLoading = false;
+        });
     }
   }
 }

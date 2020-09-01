@@ -127,7 +127,9 @@ export default {
     }
   },
   mounted () {
-    this.handleList(); // 获取列表详情
+    if (process.client) {
+      this.handleList(); // 获取列表详情
+    }
   },
   head () {
     return {
@@ -228,7 +230,7 @@ export default {
       this.rowTitle = row.name
     },
     // 列表接口
-    handleList (keyword, status) {
+    handleList () {
       this.tableLoading = true;
       var params = {};
       this.$store.dispatch("shares/SharesCategoryGet", params).then((res) => {

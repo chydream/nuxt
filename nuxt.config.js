@@ -68,16 +68,16 @@ export default {
     '@nuxtjs/proxy'
   ],
   proxy: [
-    // [
-    //   '/',
-    //   {
-    //     target: 'http://192.168.3.186:9200/', //目标接口域名
-    //     changeOrigin: true, //是否跨域
-    //     pathRewrite: {
-    //       '^/': '/'
-    //     }
-    //   }
-    // ]
+    [
+      '/dist/shares/category',
+      {
+        target: 'http://127.0.0.1:8900/shares/category', //目标接口域名
+        changeOrigin: true, //是否跨域
+        pathRewrite: {
+          '^/dist/shares/category': ''
+        }
+      }
+    ]
   ],
   /*
   ** Build configuration
