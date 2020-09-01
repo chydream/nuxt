@@ -1,7 +1,7 @@
 <template>
   <div class="default">
     <n-header></n-header>
-    <div class="main" :style="{height:height}">
+    <div class="main">
       <Nuxt />
     </div>
     <n-footer></n-footer>
@@ -78,7 +78,14 @@ body .el-table th.gutter {
   height: 100%;
   overflow: hidden;
   .main{
-     width: 1200px;
+    width: 100%;
+    height: 100%;
+    padding: 60px 0;
+    box-sizing: border-box;
+    overflow: auto;
+  }
+  .main > div{
+    width: 1200px;
     margin: 0 auto;
   }
 }
