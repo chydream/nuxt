@@ -5,7 +5,7 @@ import menu from '../mock/menuMock'
 export const sharesCategoryGet = (params) => {
     return new Promise((resolve, reject) => {
         axios({
-            url: baseUrl + 'http://192.168.3.186:9200/api-user/v1.0/tenants?code=&name=',
+            url: baseUrl + 'http://127.0.0.1:8900/shares/category',
             method: 'get',
             params
         }).then(res => {
