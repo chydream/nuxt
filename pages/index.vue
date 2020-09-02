@@ -234,8 +234,8 @@ export default {
       this.tableLoading = true;
       var params = {};
       this.$store.dispatch("shares/SharesCategoryGet", params).then((res) => {
-          console.log(res)
-          this.tableData = res
+          // console.log(res)
+          this.tableData = res.data
           this.tableLoading = false;
         })
         .catch((err) => {

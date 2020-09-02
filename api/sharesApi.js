@@ -3,15 +3,12 @@ import qs from 'qs'
 import {baseUrl} from '@/config/config'
 import menu from '../mock/menuMock'
 export const sharesCategoryGet = (params) => {
-    console.log(789)
     return new Promise((resolve, reject) => {
-        console.log(44444)
         axios({
-            url: baseUrl + 'http://127.0.0.1:3000/dist/shares/category',
+            url: baseUrl + 'http://192.168.3.186:9200/api-user/v1.0/tenants?code=&name=',
             method: 'get',
             params
         }).then(res => {
-          console.log(res)
           resolve(res.data)
         })
     })
