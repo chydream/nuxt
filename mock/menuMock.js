@@ -11,7 +11,7 @@ let menu = {
     },
     {
       id: 12,
-      label: '年级',
+      label: '资讯',
       href: '/grade',
       icon: 'fa fa-file-text',
       permission: ['view', 'add', 'delete', 'edit'],

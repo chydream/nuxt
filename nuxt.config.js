@@ -69,12 +69,12 @@ export default {
   ],
   proxy: [
     [
-      '/dist/shares/category',
+      '/dist/shares',
       {
-        target: 'http://127.0.0.1:8900/shares/category', //目标接口域名
+        target: 'http://127.0.0.1:8900/shares', //目标接口域名
         changeOrigin: true, //是否跨域
         pathRewrite: {
-          '^/dist/shares/category': ''
+          '^/dist/shares': ''
         }
       }
     ]

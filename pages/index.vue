@@ -7,7 +7,7 @@
             <el-form ref="ruleForm" label-width="50px" @submit.native.prevent>
               <el-row :gutter="10">
                 <el-col :span="6">
-                  <el-form-item label="学段" prop="stageId">
+                  <el-form-item label="股票" prop="stageId">
                     <el-select v-model.trim="stageId" placeholder="请选择" size="mini" clearable>   
                       <el-option v-for="(item, index) in stageArr" :key="index" :label="item.name" :value="item.id"></el-option>
                     </el-select>
@@ -23,10 +23,10 @@
         <el-card class="box-card mt-15">
           <!-- 头部 -->
           <div slot="header" class="clearfix fix-lh">
-            <span>年级管理</span>
+            <span>股票管理</span>
             <div class="btn-list">
-              <el-button size="mini" @click="handleAdd">新增</el-button>
-              <el-button size="mini" @click="handleDeleteAll">批量删除</el-button>
+              <!-- <el-button size="mini" @click="handleAdd">新增</el-button>
+              <el-button size="mini" @click="handleDeleteAll">批量删除</el-button> -->
             </div>
           </div>
           <div class="home-body" style="min-height:500px;">
@@ -42,12 +42,13 @@
               @current-change="handleCurrentChange"
               @size-change="handleSizeChange"
               @select-change="handleSelectChange"
-              :isShowPage="true">
+              :isShowPage="false">
               <!-- 操作按钮 -->
               <el-table-column fixed="right" slot="actionMenu" label="操作" align="center" header-align="center" width="160">
                 <template slot-scope="scope">
-                  <el-button type="text" size="small" @click="handleEdit(scope.row)">编辑</el-button>
-                  <el-button type="text" size="small" @click="handleDelete(scope.row)">删除</el-button>
+                  <el-button type="text" size="small" @click="handleEdit(scope.row)">详情</el-button>
+                  <!-- <el-button type="text" size="small" @click="handleEdit(scope.row)">编辑</el-button>
+                  <el-button type="text" size="small" @click="handleDelete(scope.row)">删除</el-button> -->
                 </template>
               </el-table-column>
             </cvue-table>
@@ -235,8 +236,8 @@ export default {
       var params = {};
       this.$store.dispatch("shares/SharesCategoryGet", params).then((res) => {
           // console.log(res)
-          this.tableData = res.data
-          this.tableLoading = false;
+          this.tableData = res
+          this.tableLoading = false
         })
         .catch((err) => {
           console.log(err);
