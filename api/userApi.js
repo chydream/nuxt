@@ -32,7 +32,7 @@ export const refreshToken = (params) => {
       url: baseUrl + '/api/sysuser/refresh',
       method: 'get',
       headers: {
-        'refresh_token': params.refreshToken
+        refresh_token: params.refreshToken
       }
     }).then(res => {
       resolve(res.data)

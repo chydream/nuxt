@@ -11,10 +11,10 @@
 <script>
 import nHeader from './header'
 import nFooter from './footer'
-import {getClientHeight} from '@/util/tool'
+import { getClientHeight } from '@/util/tool'
 export default {
   name: 'default',
-  components:{
+  components: {
     nHeader,
     nFooter
   },
@@ -50,15 +50,16 @@ export default {
 </script>
 <style lang="scss">
 @import url('../style/reset.css');
-html,body{
+html,
+body {
   width: 100%;
   height: 100%;
 }
-#app{
+#app {
   width: 100%;
   height: 100%;
 }
-:root #app{
+:root #app {
   overflow: hidden;
 }
 body .el-table th.gutter {
@@ -72,50 +73,50 @@ body .el-table th.gutter {
 .page-leave-active {
   opacity: 0;
 }
-.default{
+.default {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  .main{
+  .main {
     width: 100%;
     height: 100%;
     padding: 60px 0 70px;
     box-sizing: border-box;
     overflow: auto;
   }
-  .main > div{
+  .main > div {
     width: 1200px;
     margin: 0 auto;
   }
 }
-#nprogress .spinner{
+#nprogress .spinner {
   display: none !important;
 }
-.home-form{
-    .el-form-item{
-        margin-bottom: 0px !important;
-    }
-    .search-btn{
-        margin-top: 3px;
-    }
+.home-form {
+  .el-form-item {
+    margin-bottom: 0px !important;
+  }
+  .search-btn {
+    margin-top: 3px;
+  }
 }
-.mt-15{
-    margin-top: 10px;
+.mt-15 {
+  margin-top: 10px;
 }
-.mb-15{
-    margin-bottom: 10px;
+.mb-15 {
+  margin-bottom: 10px;
 }
-.el-tooltip__popper.is-dark{
+.el-tooltip__popper.is-dark {
   background-color: rgba(50, 50, 50, 0.7) !important;
 }
-.el-tooltip__popper[x-placement^="top"] .popper__arrow{
+.el-tooltip__popper[x-placement^='top'] .popper__arrow {
   border-top-color: rgba(50, 50, 50, 0.7) !important;
 }
-.el-tooltip__popper[x-placement^="top"] .popper__arrow::after{
+.el-tooltip__popper[x-placement^='top'] .popper__arrow::after {
   border-top-color: rgba(50, 50, 50, 0.7) !important;
   opacity: 0 !important;
 }
 .el-card__body .home-body {
-    margin-top: -15px;
+  margin-top: -15px;
 }
 </style>

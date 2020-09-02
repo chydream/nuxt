@@ -6,7 +6,7 @@
 
 <script>
 export default {
-   name: 'nFooter',
+   name: 'nFooter'
 }
 </script>
 <style lang="scss">

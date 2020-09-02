@@ -1,4 +1,4 @@
-let menu = {
+const menu = {
   admin: [
     {
       id: 12,
@@ -21,13 +21,13 @@ let menu = {
   ],
   user: [
     {
-        id: 1,
-        label: '首页',
-        href: '/index/home',
-        icon: 'fa fa-home',
-        permission: ['view', 'add', 'delete', 'edit'],
-        show: true,
-        children: []
+      id: 1,
+      label: '首页',
+      href: '/index/home',
+      icon: 'fa fa-home',
+      permission: ['view', 'add', 'delete', 'edit'],
+      show: true,
+      children: []
     }
   ]
 }

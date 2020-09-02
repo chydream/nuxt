@@ -4,10 +4,17 @@
       :default-active="activeIndex"
       class="el-menu-demo"
       mode="horizontal"
-      :unique-opened="true">
+      :unique-opened="true"
+    >
       <template v-for="(item,index) in menu">
         <!-- 一级 -->
-        <el-menu-item :index="item.href" @click="goUrl(item.href)" v-if="item.children.length==0" :key="index" v-show="item.show">
+        <el-menu-item
+          :index="item.href"
+          @click="goUrl(item.href)"
+          v-if="item.children.length==0"
+          :key="index"
+          v-show="item.show"
+        >
           <i :class="item.icon"></i>
           <span slot="title">{{item.label}}</span>
         </el-menu-item>
@@ -18,7 +25,13 @@
           </template>
           <template v-for="(itemChild,indexChild) in item.children">
             <!-- 二级 -->
-            <el-menu-item :index="itemChild.href" @click="goUrl(itemChild.href)" :key="indexChild" v-if="itemChild.children.length==0" v-show="itemChild.show">
+            <el-menu-item
+              :index="itemChild.href"
+              @click="goUrl(itemChild.href)"
+              :key="indexChild"
+              v-if="itemChild.children.length==0"
+              v-show="itemChild.show"
+            >
               <i :class="itemChild.icon"></i>
               <span slot="title">{{itemChild.label}}</span>
             </el-menu-item>
@@ -28,7 +41,13 @@
                 <span>{{itemChild.label}}</span>
               </template>
               <!-- 三级 -->
-              <el-menu-item :index="itemChildchild.href" @click="goUrl(itemChildchild.href)" v-for="(itemChildchild,indexChildchild) in itemChild.children" :key="indexChildchild" v-show="itemChildchild.show">
+              <el-menu-item
+                :index="itemChildchild.href"
+                @click="goUrl(itemChildchild.href)"
+                v-for="(itemChildchild,indexChildchild) in itemChild.children"
+                :key="indexChildchild"
+                v-show="itemChildchild.show"
+              >
                 <i :class="itemChildchild.icon"></i>
                 <span slot="title">{{itemChildchild.label}}</span>
               </el-menu-item>
@@ -40,7 +59,7 @@
   </div>
 </template>
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'nMenu',
   data () {
@@ -68,7 +87,7 @@ export default {
 }
 </script>
 <style lang="scss">
-  .el-menu{
-    border-right: none!important;
-  }
+.el-menu {
+  border-right: none !important;
+}
 </style>

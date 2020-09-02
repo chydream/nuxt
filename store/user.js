@@ -130,10 +130,10 @@ export const actions = {
   // 将菜单列表扁平化形成权限列表
   GetPermissionList ({ state, dispatch }) {
     return new Promise((resolve) => {
-      let permissionList = []
+      const permissionList = []
       // 将菜单数据扁平化为一级
       function flatNavList (arr) {
-        for (let v of arr) {
+        for (const v of arr) {
           if (v.children && v.children.length) {
             flatNavList(v.children)
           } else {

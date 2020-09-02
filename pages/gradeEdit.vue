@@ -8,14 +8,16 @@
       @handleOpen="getDetail"
       @closeDialog="closeDialog"
       @confirmDialog="confirmDialog"
-      @handleClose="handleClose">
+      @handleClose="handleClose"
+    >
       <div class="dialog-body" slot="dialogBody">
         <el-form
           :model="ruleForm"
           :rules="rules"
           ref="ruleForm"
           label-width="100px"
-          class="demo-ruleForm">
+          class="demo-ruleForm"
+        >
           <el-row :gutter="20">
             <el-col :span="24">
               <el-form-item label="年级名称" prop="name">
@@ -34,8 +36,13 @@
             </el-col>
             <el-col :span="24">
               <el-form-item label="学段" prop="stageId">
-                <el-select v-model.trim="ruleForm.stageId" placeholder="请选择" style="width:100%">   
-                  <el-option v-for="(item, index) in stageArr" :key="index" :label="item.name" :value="item.id"></el-option>
+                <el-select v-model.trim="ruleForm.stageId" placeholder="请选择" style="width:100%">
+                  <el-option
+                    v-for="(item, index) in stageArr"
+                    :key="index"
+                    :label="item.name"
+                    :value="item.id"
+                  ></el-option>
                 </el-select>
               </el-form-item>
             </el-col>
@@ -165,7 +172,7 @@ export default {
               this.$emit('confirmDialog')
               this.dialogLoading = false
             }).catch((err) => {
-              this.$message({type: 'error', message: err.resp_msg})
+              this.$message({ type: 'error', message: err.resp_msg })
             })
           } else {
             params = {
@@ -188,7 +195,7 @@ export default {
               this.$emit('confirmDialog')
               this.dialogLoading = false
             }).catch((err) => {
-              this.$message({type: 'error', message: err.resp_msg})
+              this.$message({ type: 'error', message: err.resp_msg })
             })
           }
         } else {

@@ -1,72 +1,75 @@
 <template>
-  <div class="grade">
-    <el-row :gutter="10">
-      <el-col :span="24">
-        <el-card class="box-card mt-15">
-          <div class="home-form">
-            <el-form ref="ruleForm" label-width="50px" @submit.native.prevent>
-              <el-row :gutter="10">
-                <el-col :span="6">
-                  <el-form-item label="学段" prop="stageId">
-                    <el-select v-model.trim="stageId" placeholder="请选择" size="mini" clearable>
+  <div class='home'>
+    <el-row :gutter='10'>
+      <el-col :span='24'>
+        <el-card class='box-card mt-15'>
+          <div class='home-form'>
+            <el-form ref='ruleForm' label-width='50px' @submit.native.prevent>
+              <el-row :gutter='10'>
+                <el-col :span='6'>
+                  <el-form-item label='股票' prop='stageId'>
+                    <el-select v-model.trim='stageId' placeholder='请选择' size='mini' clearable>
                       <el-option
-                        v-for="(item, index) in stageArr"
-                        :key="index"
-                        :label="item.name"
-                        :value="item.id"
+                        v-for='(item, index) in stageArr'
+                        :key='index'
+                        :label='item.name'
+                        :value='item.id'
                       ></el-option>
                     </el-select>
                   </el-form-item>
                 </el-col>
-                <el-col :span="2">
+                <el-col :span='2'>
                   <el-button
-                    type="primary"
-                    icon="el-icon-search"
-                    size="mini"
-                    @click="handleSearch"
-                    class="search-btn"
+                    type='primary'
+                    icon='el-icon-search'
+                    size='mini'
+                    @click='handleSearch'
+                    class='search-btn'
                   >搜索</el-button>
+                </el-col>
+                <el-col :span='16' style='text-align:right'>
+                  <el-button size='mini' @click='goBack'>返回</el-button>
                 </el-col>
               </el-row>
             </el-form>
           </div>
         </el-card>
-        <el-card class="box-card mt-15">
+        <el-card class='box-card mt-15'>
           <!-- 头部 -->
-          <div slot="header" class="clearfix fix-lh">
-            <span>年级管理</span>
-            <div class="btn-list">
-              <el-button size="mini" @click="handleAdd">新增</el-button>
-              <el-button size="mini" @click="handleDeleteAll">批量删除</el-button>
+          <div slot='header' class='clearfix fix-lh'>
+            <span>股票管理</span>
+            <div class='btn-list'>
+              <!-- <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button> -->
             </div>
           </div>
-          <div class="home-body">
+          <div class='home-body' style='min-height:500px'>
             <cvue-table
-              :option="tableOption"
-              :data="tableData"
-              ref="tbl1"
-              :isShowAdd="false"
-              :page="page"
-              :tablePage="tablePage"
-              :pageSize="page.pageSize"
-              :loading="tableLoading"
-              @current-change="handleCurrentChange"
-              @size-change="handleSizeChange"
-              @select-change="handleSelectChange"
-              :isShowPage="true"
+              :option='tableOption'
+              :data='tableData'
+              ref='tbl1'
+              :isShowAdd='false'
+              :page='page'
+              :tablePage='tablePage'
+              :pageSize='page.pageSize'
+              :loading='tableLoading'
+              @current-change='handleCurrentChange'
+              @size-change='handleSizeChange'
+              @select-change='handleSelectChange'
+              :isShowPage='false'
             >
               <!-- 操作按钮 -->
               <el-table-column
-                fixed="right"
-                slot="actionMenu"
-                label="操作"
-                align="center"
-                header-align="center"
-                width="160"
+                fixed='right'
+                slot='actionMenu'
+                label='操作'
+                align='center'
+                header-align='center'
+                width='160'
               >
-                <template slot-scope="scope">
-                  <el-button type="text" size="small" @click="handleEdit(scope.row)">编辑</el-button>
-                  <el-button type="text" size="small" @click="handleDelete(scope.row)">删除</el-button>
+                <template slot-scope='scope'>
+                  <el-button type='text' size='small' @click='handleEdit(scope.row)'>详情</el-button>
+                  <!-- <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
+                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>-->
                 </template>
               </el-table-column>
             </cvue-table>
@@ -76,11 +79,11 @@
     </el-row>
     <!-- 编辑弹窗 -->
     <grade-edit
-      @closeDialog="closeDialog('edit')"
-      @confirmDialog="confirmDialog('edit')"
-      @handleClose="closeDialog('edit')"
-      v-if="dialogGradeEdit"
-      :dialogVisible="dialogGradeEdit"
+      @closeDialog='closeDialog("edit")'
+      @confirmDialog='confirmDialog("edit")'
+      @handleClose='closeDialog("edit")'
+      v-if='dialogGradeEdit'
+      :dialogVisible='dialogGradeEdit'
     ></grade-edit>
   </div>
 </template>
@@ -90,7 +93,7 @@ import cvueTable from '@/components/cvue-table'
 import gradeEdit from './gradeEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
-  name: 'grade',
+  name: 'home',
   components: {
     cvueTable,
     gradeEdit
@@ -112,11 +115,11 @@ export default {
         index: false,
         selected: true,
         cloumn: [
-          { prop: 'name', label: '年级名称', align: 'center', sortable: true },
-          { prop: 'schoolStageName', label: '学段', align: 'center', sortable: true },
-          { prop: 'code', label: '年级编码', align: 'center', sortable: true },
-          { prop: 'serialNumber', label: '序列号', align: 'center', sortable: true },
-          { prop: 'displayOrder', label: '排序号', align: 'center', sortable: true }
+          { prop: 'uid', label: '分类ID', align: 'center' },
+          { prop: 'code', label: '股票代码', align: 'center' },
+          { prop: 'code_name', label: '股票名称', align: 'center' },
+          { prop: 'industry', label: '所属行业', align: 'center' },
+          { prop: 'created_at', label: '创建时间', align: 'center' }
         ]
       },
       tableData: [
@@ -146,15 +149,16 @@ export default {
     }
   },
   mounted () {
-    // this.handleList(this.selectName, this.selectStageId)
-    // this.getStageList()
+    if (process.client) {
+      this.handleList() // 获取列表详情
+    }
   },
   head () {
     return {
-      title: '年级',
+      title: '股票详情',
       meta: [
-        { hid: 'description', name: 'description', content: '这个是年级' },
-        { hid: 'keywords', name: 'keywords', content: '年级' }
+        { hid: 'description', name: 'description', content: '股票详情' },
+        { hid: 'keywords', name: 'keywords', content: '股票详情' }
       ]
     }
   },
@@ -248,24 +252,20 @@ export default {
       this.rowTitle = row.name
     },
     // 列表接口
-    handleList (name, stageId) {
+    handleList () {
       this.tableLoading = true
       var params = {
-        page: this.tablePage,
-        limit: this.page.pageSize,
-        name: name,
-        stageId: stageId
+        industry: this.$route.query.industry
       }
-      this.$store.dispatch('publicData/GradesGet', params).then(res => {
-        var data = res.data
-        this.tableData = data
-        this.page.total = res.count
-        this.page.currentPage = this.tablePage
-        this.tableLoading = false
-      }).catch(err => {
-        this.$message({ type: 'error', message: err.resp_msg })
+      this.$store.dispatch('shares/SharesListGet', params).then((res) => {
+        console.log(res)
+        this.tableData = res
         this.tableLoading = false
       })
+        .catch((err) => {
+          console.log(err)
+          this.tableLoading = false
+        })
     },
     // 关闭弹窗
     closeDialog (params) {
@@ -300,13 +300,16 @@ export default {
         this.stageArr = res.data
         this.tableLoading = false
       })
+    },
+    goBack () {
+      this.$router.push({ path: '/' })
     }
   }
 }
 </script>
 
-<style lang="scss">
-.grade {
+<style lang='scss'>
+.home {
   padding: 0px !important;
   height: auto !important;
   .btn-list {
