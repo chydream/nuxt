@@ -30,10 +30,6 @@ module.exports = {
     "eqeqeq": 0,
     'arrow-parens': 0,
     'eol-last': ["error", "always"],
-    "no-undef": 2,
-    // "quote-props": 2,
-    // "no-var": 0,
-    // "no-undef": 0,
-    // "dot-notation": ["error", {"allowKeywords": false, "allowPattern": ""}]
+    "no-undef": 2
   }
 }
