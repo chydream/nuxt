@@ -1,4 +1,4 @@
-import { sharesCategoryGet, sharesListGet } from '@/api/sharesApi'
+import { sharesCategoryGet, sharesListGet, sharesNewsGet } from '@/api/sharesApi'
 export const actions = {
   SharesCategoryGet ({ state, commit, dispatch }, params) {
     return new Promise((resolve, reject) => {
@@ -10,6 +10,13 @@ export const actions = {
   SharesListGet ({ state, commit, dispatch }, params) {
     return new Promise((resolve, reject) => {
       sharesListGet(params).then(res => {
+        resolve(res)
+      })
+    })
+  },
+  SharesNewsGet ({ state, commit, dispatch }, params) {
+    return new Promise((resolve, reject) => {
+      sharesNewsGet(params).then(res => {
         resolve(res)
       })
     })

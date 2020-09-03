@@ -77,26 +77,16 @@
         </el-card>
       </el-col>
     </el-row>
-    <!-- 编辑弹窗 -->
-    <grade-edit
-      @closeDialog='closeDialog("edit")'
-      @confirmDialog='confirmDialog("edit")'
-      @handleClose='closeDialog("edit")'
-      v-if='dialogGradeEdit'
-      :dialogVisible='dialogGradeEdit'
-    ></grade-edit>
   </div>
 </template>
 
 <script>
 import cvueTable from '@/components/cvue-table'
-import gradeEdit from './gradeEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'home',
   components: {
-    cvueTable,
-    gradeEdit
+    cvueTable
   },
   data () {
     return {
@@ -113,9 +103,9 @@ export default {
         width: '100%',
         border: true,
         index: false,
-        selected: true,
+        selected: false,
         cloumn: [
-          { prop: 'uid', label: '分类ID', align: 'center' },
+          { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
           { prop: 'code', label: '股票代码', align: 'center' },
           { prop: 'code_name', label: '股票名称', align: 'center' },
           { prop: 'industry', label: '所属行业', align: 'center' },

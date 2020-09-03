@@ -76,25 +76,25 @@
       </el-col>
     </el-row>
     <!-- 编辑弹窗 -->
-    <grade-edit
+    <index-edit
       @closeDialog='closeDialog("edit")'
       @confirmDialog='confirmDialog("edit")'
       @handleClose='closeDialog("edit")'
       v-if='dialogGradeEdit'
       :dialogVisible='dialogGradeEdit'
-    ></grade-edit>
+    ></index-edit>
   </div>
 </template>
 
 <script>
 import cvueTable from '@/components/cvue-table'
-import gradeEdit from './gradeEdit'
+import indexEdit from './indexEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'home',
   components: {
     cvueTable,
-    gradeEdit
+    indexEdit
   },
   data () {
     return {
@@ -111,9 +111,9 @@ export default {
         width: '100%',
         border: true,
         index: false,
-        selected: true,
+        selected: false,
         cloumn: [
-          { prop: 'uid', label: '分类ID', align: 'center' },
+          { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
           { prop: 'industry', label: '所属行业', align: 'center' },
           { prop: 'industryClassification', label: '所属行业类别', align: 'center' },
           { prop: 'created_at', label: '创建时间', align: 'center' },

@@ -2,7 +2,7 @@
   <div class="grade">
     <el-row :gutter="10">
       <el-col :span="24">
-        <el-card class="box-card mt-15">
+        <!-- <el-card class="box-card mt-15">
           <div class="home-form">
             <el-form ref="ruleForm" label-width="50px" @submit.native.prevent>
               <el-row :gutter="10">
@@ -30,14 +30,14 @@
               </el-row>
             </el-form>
           </div>
-        </el-card>
+        </el-card> -->
         <el-card class="box-card mt-15">
           <!-- 头部 -->
           <div slot="header" class="clearfix fix-lh">
-            <span>年级管理</span>
+            <span>财经资讯</span>
             <div class="btn-list">
-              <el-button size="mini" @click="handleAdd">新增</el-button>
-              <el-button size="mini" @click="handleDeleteAll">批量删除</el-button>
+              <!-- <el-button size="mini" @click="handleAdd">新增</el-button>
+              <el-button size="mini" @click="handleDeleteAll">批量删除</el-button> -->
             </div>
           </div>
           <div class="home-body">
@@ -53,10 +53,16 @@
               @current-change="handleCurrentChange"
               @size-change="handleSizeChange"
               @select-change="handleSelectChange"
-              :isShowPage="true"
+              :isShowPage="false"
             >
+              <template slot-scope="scope" slot="title">
+                <a :href="scope.row.url" target="_blank">{{scope.row.title}}</a>
+              </template>
+               <!-- <template slot-scope="scope" slot="thumbnail_pic_s">
+                <img :src="scope.row.thumbnail_pic_s" width="100" height="100"/>
+              </template> -->
               <!-- 操作按钮 -->
-              <el-table-column
+              <!-- <el-table-column
                 fixed="right"
                 slot="actionMenu"
                 label="操作"
@@ -68,32 +74,22 @@
                   <el-button type="text" size="small" @click="handleEdit(scope.row)">编辑</el-button>
                   <el-button type="text" size="small" @click="handleDelete(scope.row)">删除</el-button>
                 </template>
-              </el-table-column>
+              </el-table-column> -->
             </cvue-table>
           </div>
         </el-card>
       </el-col>
     </el-row>
-    <!-- 编辑弹窗 -->
-    <grade-edit
-      @closeDialog="closeDialog('edit')"
-      @confirmDialog="confirmDialog('edit')"
-      @handleClose="closeDialog('edit')"
-      v-if="dialogGradeEdit"
-      :dialogVisible="dialogGradeEdit"
-    ></grade-edit>
   </div>
 </template>
 
 <script>
 import cvueTable from '@/components/cvue-table'
-import gradeEdit from './gradeEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'grade',
   components: {
-    cvueTable,
-    gradeEdit
+    cvueTable
   },
   data () {
     return {
@@ -110,13 +106,13 @@ export default {
         width: '100%',
         border: true,
         index: false,
-        selected: true,
+        selected: false,
         cloumn: [
-          { prop: 'name', label: '年级名称', align: 'center', sortable: true },
-          { prop: 'schoolStageName', label: '学段', align: 'center', sortable: true },
-          { prop: 'code', label: '年级编码', align: 'center', sortable: true },
-          { prop: 'serialNumber', label: '序列号', align: 'center', sortable: true },
-          { prop: 'displayOrder', label: '排序号', align: 'center', sortable: true }
+          { prop: 'author_name', label: '作者', align: 'center', sortable: true, width: 200 },
+          { prop: 'category', label: '分类', align: 'center', sortable: true, width: 150 },
+          { prop: 'date', label: '日期', align: 'center', sortable: true, width: 200 },
+          { prop: 'title', label: '标题', align: 'left', sortable: true, slotStatus: true }
+          // { prop: 'thumbnail_pic_s', label: '图片', align: 'center', sortable: true, slotStatus: true }
         ]
       },
       tableData: [
@@ -146,7 +142,7 @@ export default {
     }
   },
   mounted () {
-    // this.handleList(this.selectName, this.selectStageId)
+    this.handleList('')
     // this.getStageList()
   },
   head () {
@@ -248,20 +244,18 @@ export default {
       this.rowTitle = row.name
     },
     // 列表接口
-    handleList (name, stageId) {
+    handleList () {
       this.tableLoading = true
       var params = {
-        page: this.tablePage,
-        limit: this.page.pageSize,
-        name: name,
-        stageId: stageId
       }
-      this.$store.dispatch('publicData/GradesGet', params).then(res => {
-        var data = res.data
-        this.tableData = data
-        this.page.total = res.count
-        this.page.currentPage = this.tablePage
-        this.tableLoading = false
+      this.$store.dispatch('shares/SharesNewsGet', params).then(res => {
+        if (res.error_code === 0) {
+          var data = res.result.data
+          this.tableData = data
+          // this.page.total = res.count
+          // this.page.currentPage = this.tablePage
+          this.tableLoading = false
+        }
       }).catch(err => {
         this.$message({ type: 'error', message: err.resp_msg })
         this.tableLoading = false

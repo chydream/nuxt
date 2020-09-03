@@ -12,7 +12,7 @@ const menu = {
     {
       id: 12,
       label: '资讯',
-      href: '/grade',
+      href: '/news',
       icon: 'fa fa-file-text',
       permission: ['view', 'add', 'delete', 'edit'],
       show: true,
