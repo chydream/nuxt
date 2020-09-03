@@ -147,10 +147,10 @@ export default {
   },
   head () {
     return {
-      title: '年级',
+      title: '股票财经资讯',
       meta: [
-        { hid: 'description', name: 'description', content: '这个是年级' },
-        { hid: 'keywords', name: 'keywords', content: '年级' }
+        { hid: 'description', name: 'description', content: '这个股票财经资讯' },
+        { hid: 'keywords', name: 'keywords', content: '股票财经资讯' }
       ]
     }
   },
