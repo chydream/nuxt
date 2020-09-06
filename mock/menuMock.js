@@ -17,6 +17,15 @@ const menu = {
       permission: ['view', 'add', 'delete', 'edit'],
       show: true,
       children: []
+    },
+    {
+      id: 12,
+      label: '股票策略',
+      href: '/strategy',
+      icon: 'fa fa-file-text',
+      permission: ['view', 'add', 'delete', 'edit'],
+      show: true,
+      children: []
     }
   ],
   user: [

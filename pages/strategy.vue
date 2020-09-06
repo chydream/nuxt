@@ -27,9 +27,6 @@
                     class='search-btn'
                   >搜索</el-button>
                 </el-col>
-                <el-col :span='16' style='text-align:right'>
-                  <el-button size='mini' @click='goBack'>返回</el-button>
-                </el-col>
               </el-row>
             </el-form>
           </div>
@@ -37,7 +34,7 @@
         <el-card class='box-card mt-15'>
           <!-- 头部 -->
           <div slot='header' class='clearfix fix-lh'>
-            <span>{{$route.query.code_name}}管理</span>
+            <span>股票策略管理</span>
             <div class='btn-list'>
               <!-- <el-button size='mini' @click='handleAdd'>新增</el-button>
               <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button>-->
@@ -56,13 +53,10 @@
               @current-change='handleCurrentChange'
               @size-change='handleSizeChange'
               @select-change='handleSelectChange'
-              :isShowPage='true'
+              :isShowPage='false'
             >
-              <template slot="isST" slot-scope="scope">
-                <span>{{scope.row.isST === 1 ? '是' : '否'}}</span>
-              </template>
               <!-- 操作按钮 -->
-              <!-- <el-table-column
+              <el-table-column
                 fixed='right'
                 slot='actionMenu'
                 label='操作'
@@ -72,16 +66,13 @@
               >
                 <template slot-scope='scope'>
                   <el-button type='text' size='small' @click='handleView(scope.row)'>详情</el-button>
-                  <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
-                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>
+                  <!-- <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
+                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>-->
                 </template>
-              </el-table-column> -->
+              </el-table-column>
             </cvue-table>
           </div>
         </el-card>
-        <k-line chartId="kShareChart" class="mt-15" width="100%" :option="kChartOption" title="K线图"></k-line>
-        <n-line chartId="lineShareChart" class="mt-15" width="100%" :option="lineChartOption" title="涨跌幅折线图"></n-line>
-        <n-bar chartId="shareChart" class="mt-15" width="100%" :option="chartOption" title="成交量柱形图"></n-bar>
       </el-col>
     </el-row>
     <!-- 编辑弹窗 -->
@@ -97,19 +88,13 @@
 
 <script>
 import cvueTable from '@/components/cvue-table'
-import nBar from '@/components/chart/bar'
-import nLine from '@/components/chart/line'
-import kLine from '@/components/chart/kLine'
 import indexEdit from './indexEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'home',
   components: {
     cvueTable,
-    indexEdit,
-    nBar,
-    kLine,
-    nLine
+    indexEdit
   },
   data () {
     return {
@@ -128,18 +113,11 @@ export default {
         index: false,
         selected: false,
         cloumn: [
-          { prop: 'date', label: '行情日期', align: 'center' },
-          { prop: 'code', label: '股票代码', align: 'center' },
-          { prop: 'open', label: '开盘价', align: 'center' },
-          { prop: 'high', label: '最高价', align: 'center' },
-          { prop: 'low', label: '最低价', align: 'center' },
-          { prop: 'close', label: '收盘价', align: 'center' },
-          { prop: 'volume', label: '成交量', align: 'center' },
-          { prop: 'turn', label: '换手率', align: 'center' },
-          { prop: 'pctChg', label: '涨跌幅', align: 'center' },
-          { prop: 'peTTM', label: '滚动市盈率', align: 'center' },
-          { prop: 'isST', label: '是否ST', align: 'center', slotStatus: true },
-          { prop: 'created_at', label: '创建时间', align: 'center' }
+          // { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
+          { prop: 'industry', label: '所属行业', align: 'center' },
+          { prop: 'industryClassification', label: '所属行业类别', align: 'center' },
+          { prop: 'created_at', label: '创建时间', align: 'center' },
+          { prop: 'count', label: '数量', align: 'center' }
         ]
       },
       tableData: [
@@ -159,48 +137,7 @@ export default {
       rowData: [],
       name: '',
       selectName: '',
-      selectIds: [],
-      chartOption: {
-        xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            data: [120, 200, 150, 80, 70, 110, 130],
-            type: 'bar'
-        }]
-      },
-      kChartOption: {
-        xAxis: {
-            data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']
-        },
-        yAxis: {},
-        series: [{
-            type: 'k',
-            data: [
-                [20, 30, 10, 35],
-                [40, 35, 30, 55],
-                [33, 38, 33, 40],
-                [40, 40, 32, 42]
-            ]
-        }]
-      },
-      lineChartOption: {
-        xAxis: {
-            type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-            type: 'value'
-        },
-        series: [{
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
-            type: 'line'
-        }]
-      }
+      selectIds: []
     }
   },
   computed: {
@@ -211,16 +148,15 @@ export default {
   },
   mounted () {
     if (process.client) {
-      this.handleList() // 获取列表详情
-      this.getChartData()
+      // this.handleList() // 获取列表详情
     }
   },
   head () {
     return {
-      title: '股票代码详情',
+      title: '股票策略',
       meta: [
-        { hid: 'description', name: 'description', content: '这个是股票代码详情' },
-        { hid: 'keywords', name: 'keywords', content: '股票代码详情' }
+        { hid: 'description', name: 'description', content: '这个是股票策略' },
+        { hid: 'keywords', name: 'keywords', content: '股票策略' }
       ]
     }
   },
@@ -316,52 +252,10 @@ export default {
     // 列表接口
     handleList () {
       this.tableLoading = true
-      var params = {
-        code: this.$route.query.code,
-        limit: this.page.pageSize,
-        page: this.tablePage
-      }
-      this.$store.dispatch('shares/SharesDetailGet', params).then((res) => {
+      var params = {}
+      this.$store.dispatch('shares/SharesCategoryGet', params).then((res) => {
         // console.log(res)
-        this.tableData = res.data
-        this.tableLoading = false
-        this.page.total = res.count
-        this.page.currentPage = this.tablePage
-      })
-        .catch((err) => {
-          console.log(err)
-          this.tableLoading = false
-        })
-    },
-    getChartData () {
-      this.tableLoading = true
-      var params = {
-        code: this.$route.query.code,
-        limit: 1000,
-        page: 1
-      }
-      this.$store.dispatch('shares/SharesDetailGet', params).then((res) => {
-        // console.log(res)
-        var chartData = res.data
-        var xData = []
-        var yData = []
-        var kData = []
-        var lData = []
-        chartData.forEach((item, index) => {
-          xData.push(item.date)
-          yData.push(item.volume)
-          var kDataItem = []
-          kDataItem.push(item.open, item.high, item.low, item.close)
-          kData.push(kDataItem)
-          lData.push(item.pctChg)
-        })
-        this.chartOption.xAxis.data = xData
-        this.chartOption.series[0].data = yData
-        this.kChartOption.xAxis.data = xData
-        // console.log(kData)
-        this.kChartOption.series[0].data = kData
-        this.lineChartOption.xAxis.data = xData
-        this.lineChartOption.series[0].data = lData
+        this.tableData = res
         this.tableLoading = false
       })
         .catch((err) => {
@@ -370,6 +264,7 @@ export default {
         })
     },
     handleView (row) {
+      this.$router.push({ path: '/indexList', query: { industry: row.industry } })
     },
     // 关闭弹窗
     closeDialog (params) {
@@ -404,9 +299,6 @@ export default {
         this.stageArr = res.data
         this.tableLoading = false
       })
-    },
-    goBack () {
-      this.$router.push({ path: '/indexList', query: { industry: this.$route.query.industry } })
     }
   }
 }

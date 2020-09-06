@@ -6,7 +6,7 @@
 <script>
 import cvueChart from '@/components/chart/cvue-chart'
 export default {
-  name: 'BarChart',
+  name: 'KLineChart',
   components: {
     cvueChart
   },
@@ -38,15 +38,17 @@ export default {
       default: () => {
         return {
           xAxis: {
-              type: 'category',
-              data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+              data: ['2017-10-24', '2017-10-25', '2017-10-26', '2017-10-27']
           },
-          yAxis: {
-              type: 'value'
-          },
+          yAxis: {},
           series: [{
-              data: [120, 200, 150, 80, 70, 110, 130],
-              type: 'bar'
+              type: 'k',
+              data: [
+                  [20, 30, 10, 35],
+                  [40, 35, 30, 55],
+                  [33, 38, 33, 40],
+                  [40, 40, 32, 42]
+              ]
           }]
         }
       }
