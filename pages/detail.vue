@@ -27,9 +27,6 @@
                     class='search-btn'
                   >搜索</el-button>
                 </el-col>
-                <el-col :span='16' style='text-align:right'>
-                  <el-button size='mini' @click='goBack'>返回</el-button>
-                </el-col>
               </el-row>
             </el-form>
           </div>
@@ -37,9 +34,10 @@
         <el-card class='box-card mt-15'>
           <!-- 头部 -->
           <div slot='header' class='clearfix fix-lh'>
-            <span>股票管理</span>
+            <span>{{$route.query.code_name}}管理</span>
             <div class='btn-list'>
-              <!-- <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button> -->
+              <!-- <el-button size='mini' @click='handleAdd'>新增</el-button>
+              <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button>-->
             </div>
           </div>
           <div class='home-body' style='min-height:500px'>
@@ -55,10 +53,10 @@
               @current-change='handleCurrentChange'
               @size-change='handleSizeChange'
               @select-change='handleSelectChange'
-              :isShowPage='false'
+              :isShowPage='true'
             >
               <!-- 操作按钮 -->
-              <el-table-column
+              <!-- <el-table-column
                 fixed='right'
                 slot='actionMenu'
                 label='操作'
@@ -68,25 +66,35 @@
               >
                 <template slot-scope='scope'>
                   <el-button type='text' size='small' @click='handleView(scope.row)'>详情</el-button>
-                  <!-- <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
-                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>-->
+                  <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
+                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>
                 </template>
-              </el-table-column>
+              </el-table-column> -->
             </cvue-table>
           </div>
         </el-card>
       </el-col>
     </el-row>
+    <!-- 编辑弹窗 -->
+    <index-edit
+      @closeDialog='closeDialog("edit")'
+      @confirmDialog='confirmDialog("edit")'
+      @handleClose='closeDialog("edit")'
+      v-if='dialogGradeEdit'
+      :dialogVisible='dialogGradeEdit'
+    ></index-edit>
   </div>
 </template>
 
 <script>
 import cvueTable from '@/components/cvue-table'
+import indexEdit from './indexEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'home',
   components: {
-    cvueTable
+    cvueTable,
+    indexEdit
   },
   data () {
     return {
@@ -105,10 +113,14 @@ export default {
         index: false,
         selected: false,
         cloumn: [
-          { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
+          { prop: 'date', label: '交易所行情日期', align: 'center' },
           { prop: 'code', label: '股票代码', align: 'center' },
-          { prop: 'code_name', label: '股票名称', align: 'center' },
-          { prop: 'industry', label: '所属行业', align: 'center' },
+          { prop: 'open', label: '开盘价', align: 'center' },
+          { prop: 'close', label: '收盘价', align: 'center' },
+          { prop: 'volume', label: '成交量', align: 'center' },
+          { prop: 'turn', label: '换手率', align: 'center' },
+          { prop: 'pctChg', label: '涨跌幅', align: 'center' },
+          { prop: 'peTTM', label: '滚动市盈率', align: 'center' },
           { prop: 'created_at', label: '创建时间', align: 'center' }
         ]
       },
@@ -145,10 +157,10 @@ export default {
   },
   head () {
     return {
-      title: '股票详情',
+      title: '股票代码详情',
       meta: [
-        { hid: 'description', name: 'description', content: '股票详情' },
-        { hid: 'keywords', name: 'keywords', content: '股票详情' }
+        { hid: 'description', name: 'description', content: '这个是股票代码详情' },
+        { hid: 'keywords', name: 'keywords', content: '股票代码详情' }
       ]
     }
   },
@@ -167,9 +179,6 @@ export default {
       this.actionType = 'edit'
       this.dialogGradeEdit = true
       this.rowData = row
-    },
-    handleView (row) {
-      this.$router.push({ path: '/detail', query: { code: row.code, code_name: row.code_name } })
     },
     // 表格选择
     handleSelectChange (val) {
@@ -248,17 +257,24 @@ export default {
     handleList () {
       this.tableLoading = true
       var params = {
-        industry: this.$route.query.industry
+        code: this.$route.query.code,
+        limit: this.page.pageSize,
+        page: this.tablePage
       }
-      this.$store.dispatch('shares/SharesListGet', params).then((res) => {
-        // console.log(res)
-        this.tableData = res
+      this.$store.dispatch('shares/SharesDetailGet', params).then((res) => {
+        console.log(res)
+        this.tableData = res.data
         this.tableLoading = false
+        this.page.total = res.count
+        this.page.currentPage = this.tablePage
       })
         .catch((err) => {
           console.log(err)
           this.tableLoading = false
         })
+    },
+    handleView (row) {
+      this.$router.push({ path: '/detail', query: { code: row.code } })
     },
     // 关闭弹窗
     closeDialog (params) {
@@ -293,9 +309,6 @@ export default {
         this.stageArr = res.data
         this.tableLoading = false
       })
-    },
-    goBack () {
-      this.$router.push({ path: '/' })
     }
   }
 }

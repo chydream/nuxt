@@ -35,3 +35,14 @@ export const sharesNewsGet = (params) => {
     })
   })
 }
+export const sharesDetailGet = (params) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url: baseUrl + '/shares/detail',
+      method: 'get',
+      params
+    }).then(res => {
+      resolve(res.data)
+    })
+  })
+}
