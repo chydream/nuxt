@@ -27,6 +27,9 @@
                     class='search-btn'
                   >搜索</el-button>
                 </el-col>
+                <el-col :span='16' style='text-align:right'>
+                  <el-button size='mini' @click='goBack'>返回</el-button>
+                </el-col>
               </el-row>
             </el-form>
           </div>
@@ -73,6 +76,7 @@
             </cvue-table>
           </div>
         </el-card>
+        <n-bar chartId="shareChart" class="mt-15" width="100%" :option="chartOption" title="成交量柱形图"></n-bar>
       </el-col>
     </el-row>
     <!-- 编辑弹窗 -->
@@ -88,13 +92,15 @@
 
 <script>
 import cvueTable from '@/components/cvue-table'
+import nBar from '@/components/chart/bar'
 import indexEdit from './indexEdit'
 import { getClientHeight } from '@/util/tool'
 export default {
   name: 'home',
   components: {
     cvueTable,
-    indexEdit
+    indexEdit,
+    nBar
   },
   data () {
     return {
@@ -141,7 +147,20 @@ export default {
       rowData: [],
       name: '',
       selectName: '',
-      selectIds: []
+      selectIds: [],
+      chartOption: {
+        xAxis: {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [120, 200, 150, 80, 70, 110, 130],
+            type: 'bar'
+        }]
+      }
     }
   },
   computed: {
@@ -153,6 +172,7 @@ export default {
   mounted () {
     if (process.client) {
       this.handleList() // 获取列表详情
+      this.getChartData()
     }
   },
   head () {
@@ -262,7 +282,7 @@ export default {
         page: this.tablePage
       }
       this.$store.dispatch('shares/SharesDetailGet', params).then((res) => {
-        console.log(res)
+        // console.log(res)
         this.tableData = res.data
         this.tableLoading = false
         this.page.total = res.count
@@ -273,8 +293,32 @@ export default {
           this.tableLoading = false
         })
     },
+    getChartData () {
+      this.tableLoading = true
+      var params = {
+        code: this.$route.query.code,
+        limit: 1000,
+        page: 1
+      }
+      this.$store.dispatch('shares/SharesDetailGet', params).then((res) => {
+        // console.log(res)
+        var chartData = res.data
+        var xData = []
+        var yData = []
+        chartData.forEach((item, index) => {
+          xData.push(item.date)
+          yData.push(item.volume)
+        })
+        this.chartOption.xAxis.data = xData
+        this.chartOption.series[0].data = yData
+        this.tableLoading = false
+      })
+        .catch((err) => {
+          console.log(err)
+          this.tableLoading = false
+        })
+    },
     handleView (row) {
-      this.$router.push({ path: '/detail', query: { code: row.code } })
     },
     // 关闭弹窗
     closeDialog (params) {
@@ -309,6 +353,9 @@ export default {
         this.stageArr = res.data
         this.tableLoading = false
       })
+    },
+    goBack () {
+      this.$router.push({ path: '/indexList', query: { industry: this.$route.query.industry } })
     }
   }
 }

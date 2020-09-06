@@ -113,7 +113,7 @@ export default {
         index: false,
         selected: false,
         cloumn: [
-          { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
+          // { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
           { prop: 'industry', label: '所属行业', align: 'center' },
           { prop: 'industryClassification', label: '所属行业类别', align: 'center' },
           { prop: 'created_at', label: '创建时间', align: 'center' },

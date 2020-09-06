@@ -105,7 +105,7 @@ export default {
         index: false,
         selected: false,
         cloumn: [
-          { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
+          // { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
           { prop: 'code', label: '股票代码', align: 'center' },
           { prop: 'code_name', label: '股票名称', align: 'center' },
           { prop: 'industry', label: '所属行业', align: 'center' },
@@ -169,7 +169,7 @@ export default {
       this.rowData = row
     },
     handleView (row) {
-      this.$router.push({ path: '/detail', query: { code: row.code, code_name: row.code_name } })
+      this.$router.push({ path: '/detail', query: { code: row.code, code_name: row.code_name, industry: this.$route.query.industry } })
     },
     // 表格选择
     handleSelectChange (val) {

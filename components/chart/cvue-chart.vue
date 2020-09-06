@@ -94,7 +94,7 @@ export default {
   },
   methods: {
     initChart () {
-      let self = this
+      const self = this
       self.myChart = echarts.init(document.getElementById(self.chartId), 'macarons')
       self.myChart.setOption(self.option)
       // this.$nextTick(() => {
