@@ -68,8 +68,8 @@
               >
                 <template slot-scope='scope'>
                   <el-button type='text' size='small' @click='handleView(scope.row)'>详情</el-button>
-                  <!-- <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
-                  <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>-->
+                  <!-- <el-button type='text' size='small' @click='handleExport(scope.row)'>模块导入</el-button> -->
+                  <!-- <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button> -->
                 </template>
               </el-table-column>
             </cvue-table>

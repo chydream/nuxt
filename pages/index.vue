@@ -36,8 +36,8 @@
           <div slot='header' class='clearfix fix-lh'>
             <span>股票管理</span>
             <div class='btn-list'>
-              <!-- <el-button size='mini' @click='handleAdd'>新增</el-button>
-              <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button>-->
+              <a href="http://127.0.0.1:8900/shares/detail/export/day" style="color:#409EFF;margin-left:10px;" target="_blank">批量导入</a>
+              <!-- <el-button size='mini' @click='handleDeleteAll'>批量删除</el-button> -->
             </div>
           </div>
           <div class='home-body' style='min-height:500px'>
@@ -66,6 +66,7 @@
               >
                 <template slot-scope='scope'>
                   <el-button type='text' size='small' @click='handleView(scope.row)'>详情</el-button>
+                  <a :href="'http://127.0.0.1:8900/shares/detail/export?industry=' + scope.row.industry" style="color:#409EFF;margin-left:10px;" target="_blank">模块导入</a>
                   <!-- <el-button type='text' size='small' @click='handleEdit(scope.row)'>编辑</el-button>
                   <el-button type='text' size='small' @click='handleDelete(scope.row)'>删除</el-button>-->
                 </template>
