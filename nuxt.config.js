@@ -16,7 +16,7 @@ export default {
   */
  router: {
     base:"/dist",
-    // middleware: ['checkAuth']
+    // middleware: ['browserVersion']
   },
   head: {
     title: process.env.npm_package_name || '',
@@ -47,6 +47,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    // '@/plugins/core',
     '@/plugins/element-ui',
     '~/plugins/filters',
     { src: '@/plugins/loading', ssr: false }
@@ -84,7 +85,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-    transpile: [/^element-ui/],
+    transpile: [/^element-ui/, 'installComponents'],
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
