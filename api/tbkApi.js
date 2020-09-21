@@ -23,3 +23,14 @@ export const tbkProductListGet = (params) => {
     })
   })
 }
+export const tbkMaterialListGet = (params) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url: baseUrl + '/tbk/material/list',
+      method: 'get',
+      params
+    }).then(res => {
+      resolve(res.data)
+    })
+  })
+}
