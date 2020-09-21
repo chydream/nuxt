@@ -12,3 +12,14 @@ export const tbkListGet = (params) => {
     })
   })
 }
+export const tbkProductListGet = (params) => {
+  return new Promise((resolve, reject) => {
+    axios({
+      url: baseUrl + '/tbk/product/list',
+      method: 'get',
+      params
+    }).then(res => {
+      resolve(res.data)
+    })
+  })
+}
