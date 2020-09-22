@@ -55,8 +55,8 @@
               @select-change='handleSelectChange'
               :isShowPage='false'
             >
-              <template slot-scope="scope" slot="title">
-                <a :href="scope.row.coupon_click_url" target="_blank">{{scope.row.title}}</a>
+              <template slot-scope="scope" slot="shop_title">
+                <a :href="scope.row.shop_url" target="_blank">{{scope.row.shop_title}}</a>
               </template>
               <!-- 操作按钮 -->
               <el-table-column
@@ -105,11 +105,11 @@ export default {
         selected: false,
         cloumn: [
           // { prop: 'uid', label: '分类ID', align: 'center', width: 260 },
-          { prop: 'title', label: '标题', align: 'center', slotStatus: true },
-          { prop: 'zk_final_price', label: '促销价', align: 'center' },
-          { prop: 'reserve_price', label: '价格', align: 'center' },
-          // { prop: 'item_url', label: '网址', align: 'center', slotStatus: true },
-          { prop: 'category_name', label: '分类', align: 'center' }
+          { prop: 'shop_title', label: '标题', align: 'center', slotStatus: true },
+          { prop: 'shop_type', label: '商店类型', align: 'center' },
+          { prop: 'seller_nick', label: '昵称', align: 'center' }
+          // { prop: 'shop_url', label: '网址', align: 'center', slotStatus: true },
+          // { prop: 'category_name', label: '分类', align: 'center' }
         ]
       },
       tableData: [
@@ -245,9 +245,9 @@ export default {
     handleList () {
       this.tableLoading = true
       var params = {}
-      this.$store.dispatch('tbk/TbkMaterialListGet', params).then((res) => {
-        // console.log(res)
-        this.tableData = res.tbk_dg_optimus_material_response.result_list.map_data
+      this.$store.dispatch('tbk/TbkShopSearchGet', params).then((res) => {
+        console.log(res)
+        this.tableData = res.tbk_shop_get_response.results.n_tbk_shop
         this.tableLoading = false
       })
       .catch((err) => {
@@ -259,9 +259,11 @@ export default {
       console.log(row)
       this.tableLoading = true
       var params = {
-        item_id: row.item_id
+        // user_id: row.user_id,
+        // text: row.shop_title,
+        url: row.shop_url
       }
-      this.$store.dispatch('tbk/TbkShopSearchGet', params).then((res) => {
+      this.$store.dispatch('tbk/TbkSpread', params).then((res) => {
         console.log(res)
         // this.tableData = res.tbk_dg_optimus_material_response.result_list.map_data
         this.tableLoading = false

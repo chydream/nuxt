@@ -10,6 +10,8 @@ export const sharesCategoryGet = (params) => {
       params
     }).then(res => {
       resolve(res.data)
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }
@@ -21,6 +23,8 @@ export const sharesListGet = (params) => {
       params
     }).then(res => {
       resolve(res.data)
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }
@@ -32,6 +36,8 @@ export const sharesNewsGet = (params) => {
       params
     }).then(res => {
       resolve(res.data)
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }
@@ -43,6 +49,8 @@ export const sharesDetailGet = (params) => {
       params
     }).then(res => {
       resolve(res.data)
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }

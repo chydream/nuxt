@@ -19,6 +19,8 @@ export const logout = (params) => {
       data: qs.stringify(params)
     }).then(res => {
       resolve({ message: '登出成功', success: true })
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }
@@ -72,6 +74,8 @@ export const getUserInfo = (params) => {
         res.data.userInfo.role = ['admin']
         resolve({ data: res.data.userInfo, message: '获取用户信息成功', success: true })
       }
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }
@@ -93,6 +97,8 @@ export const getAuthority = (params) => {
       method: 'get'
     }).then(res => {
       resolve(res.data)
+    }).catch(error => {
+      reject(error.data)
     })
   })
 }

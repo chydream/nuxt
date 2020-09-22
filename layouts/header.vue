@@ -123,7 +123,7 @@ export default {
 }
 .header-left {
   line-height: 60px;
-  width: 50%;
+  width: 90%;
   float: left;
 }
 .header-left i {
@@ -132,7 +132,7 @@ export default {
 .header-right {
   padding: 13px 0px;
   line-height: 20px;
-  width: 50%;
+  width: 10%;
   float: right;
   text-align: right;
 }
