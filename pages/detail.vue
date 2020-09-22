@@ -348,12 +348,12 @@ export default {
         var kData = []
         var lData = []
         chartData.forEach((item, index) => {
-          xData.push(item.date)
-          yData.push(item.volume)
+          xData.unshift(item.date)
+          yData.unshift(item.volume)
           var kDataItem = []
-          kDataItem.push(item.open, item.high, item.low, item.close)
-          kData.push(kDataItem)
-          lData.push(item.pctChg)
+          kDataItem.unshift(item.open, item.high, item.low, item.close)
+          kData.unshift(kDataItem)
+          lData.unshift(item.pctChg)
         })
         this.chartOption.xAxis.data = xData
         this.chartOption.series[0].data = yData
