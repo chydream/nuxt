@@ -1,0 +1,2213 @@
+@charset "utf-8";
+
+.mod_hlist li {
+	float: left;
+	display: inline
+}
+
+.area {
+	width: 1200px;
+	margin: 0 auto
+}
+
+.areaa {
+	width: 1200px;
+	margin: 0 auto;
+	zoom: 1
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.sec_header {
+	width: 1200px;
+	margin: 0 auto;
+	height: 82px;
+	background: url(../images/common/mod_banner_bg.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/mod_banner_bg.png*/ no-repeat;
+	position: relative
+}
+
+.sec_header .mod_logo {
+	margin-top: 15px;
+	display: inline
+}
+
+.mod_logo h1 {
+	display: inline-block;
+	zoom: 1;
+	margin-top: 5px
+}
+
+.mod_logo h1 a {
+	display: inline-block;
+	height: 46px
+}
+
+.mod_logo .hidden {
+	visibility: hidden;
+	display: inline-block;
+	width: 0;
+	height: 0;
+	overflow: hidden
+}
+
+.mod_logo_sub {
+	width: 150px;
+	overflow: hidden;
+	/* background: url(../images/common/global.png) no-repeat; */
+	margin-left: 10px
+}
+
+.mod_logo_index {
+	width: 210px;
+	float: left
+}
+
+.mod_searchfull {
+	margin-top: 25px;
+	height: 34px;
+	line-height: normal
+}
+
+.mod_search {
+	width: auto;
+	position: relative;
+	z-index: 2
+}
+
+.mod_search_bd {
+	width: 199px;
+	height: 32px;
+	overflow: hidden;
+	border: 1px solid #d0d2d4;
+	border-right: 0
+}
+
+.mod_search .ipt_search {
+	width: 180px;
+	height: 16px;
+	line-height: 17px;
+	padding: 8px;
+	color: #888;
+	background-color: #FFF
+}
+
+.mod_search .ico_search {
+	width: 40px;
+	height: 34px;
+	background: url(../images/common/icon_search.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/icon_search.png*/ no-repeat #E63955 center
+}
+
+.side_right a p {
+	color: #f6f6f6
+}
+
+.sec_menu {
+	border-bottom: 2px solid #E73A56;
+	background-color: #fff
+}
+
+.mod_menu {
+	width: 1200px;
+	height: 40px;
+	margin: 0 auto;
+	position: relative
+}
+
+.mod_menu .mod_hlist {
+	display: inline-block
+}
+
+.mod_menu .mod_hlist li {
+	float: left;
+	display: inline
+}
+
+.mod_menu .mod_hlist a {
+	color: #fff
+}
+
+.mod_menu .mod_hlist a:hover {
+	text-decoration: none;
+	color: red
+}
+
+.mod_menu .menu_on a, .mod_menu_bd .menu_on a:hover {
+	color: red !important
+}
+
+.mod_menu li a.lbl_m {
+	position: relative;
+	display: inline-block;
+	color: #000;
+	width: 85px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: top;
+	text-align: center;
+	font-size: 14px
+}
+
+#cat_cel {
+	width: 176px;
+	height: 40px;
+	background-color: #F3526C;
+	line-height: 40px;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	overflow: hidden;
+	position: relative
+}
+
+#cat_cel.show {
+	height: auto
+}
+
+#cat_cel .cat_list {
+	background-color: #E73A56
+}
+
+#cat_cel .cat_list li {
+	float: left;
+	width: 50%;
+	text-align: center;
+	border-bottom: 1px solid #F0D7CB
+}
+
+#cat_cel .cat_list li a {
+	font: 12px;
+	line-height: 48px;
+	height: 48px;
+	cursor: pointer;
+	color: #fff;
+	display: block;
+	float: left
+}
+
+#cat_cel .cat_list li i {
+	width: 20px;
+	height: 30px;
+	display: block;
+	float: left;
+	margin-left: 10px;
+	margin-top: 9px;
+	/* background: url(../images/common/nav_bg_top.png) no-repeat */
+}
+
+#cat_cel .cat_list li .cat_1 {
+	background-position: 0 5px
+}
+
+#cat_cel .cat_list li .cat_2 {
+	background-position: 0 -24px
+}
+
+#cat_cel .cat_list li .cat_3 {
+	background-position: -63px -24px
+}
+
+#cat_cel .cat_list li .cat_4 {
+	background-position: -63px -163px
+}
+
+#cat_cel .cat_list li .cat_5 {
+	background-position: 0 -107px
+}
+
+#cat_cel .cat_list li .cat_6 {
+	background-position: 0 -191px
+}
+
+#cat_cel .cat_list li .cat_7 {
+	background-position: -63px -55px
+}
+
+#cat_cel .cat_list li .cat_8 {
+	background-position: -63px -136px
+}
+
+#cat_cel .cat_list li .cat_9 {
+	background-position: -63px -80px
+}
+
+#cat_cel .cat_list li .cat_10 {
+	background-position: 0 -219px
+}
+
+.mod_menu #sign_box a {
+	color: red
+}
+
+.mod_menu #sign_box .icon-sign {
+	background: transparent url(../images/common/icon_sign.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/icon_sign.png*/ no-repeat scroll left 50%
+}
+
+.mod_menu #sign_box .qd_a {
+	background: 0 0;
+	padding-left: 0
+}
+
+.mod_menu #sign_box a:hover {
+	text-decoration: none;
+	background-color: #fff;
+	color: red
+}
+
+.wel_tle {
+	border-bottom: 1px solid #E6E6E6;
+	font-size: 14px;
+	overflow: hidden;
+	height: 35px;
+	margin: 0 auto;
+	width: 1200px;
+	margin-top: 20px
+}
+
+.wel_tle .tle {
+	float: left;
+	text-indent: -999em;
+	width: 180px
+}
+
+.countdown a {
+	margin-right: 20px;
+	text-align: center
+}
+
+.countdown .on {
+	border-bottom: 2px solid #E73A56;
+	padding: 10px 5px;
+	color: #E73A56
+}
+
+.ico1, .ico2, .ico3, .ico4, .ico5, .ico6, .ico7 {
+	background: url(../images/common/jrjx.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/jrjx.png*/ no-repeat;
+	float: left;
+	height: 30px
+}
+
+.ico1 {
+	background-position: 0 -1px;
+	width: 355px
+}
+
+.ico2 {
+	background-position: 0 -30px;
+	width: 184px
+}
+
+.bh-control {
+	margin-top: 10px
+}
+
+.bh-control .bh-next, .bh-control .bh-prev {
+	/* background-image: url(); */
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin-left: 5px
+}
+
+.bh-control .bh-prev {
+	background-position: 0 -2px
+}
+
+.bh-control .bh-prev:hover {
+	background-position: 0 -52px
+}
+
+.bh-control .bh-next {
+	background-position: 0 -27px
+}
+
+.bh-control .bh-next:hover {
+	background-position: 0 -77px
+}
+
+.wel_tle_postion {
+	position: fixed;
+	top: 0;
+	background: #fff;
+	left: 50%;
+	top: 0;
+	margin-top: 0;
+	margin-left: -490px;
+	z-index: 2;
+	background: #f5f5f5;
+	width: 978px
+}
+
+.wel_tle_postion .topbar_link {
+	display: block
+}
+
+.wel_tle_postion .prolist_type {
+	display: none
+}
+
+.wel_tle_postion .countdown span, .wel_tle_postion .topbar_link a {
+	font-size: 12px
+}
+
+.side_nav {
+	position: absolute;
+	top: 245px;
+	width: 145px;
+	left: 49%;
+	text-align: left;
+	margin-left: -635px;
+	z-index: 2;
+	background: #FFF;
+	border: 1px solid #ebebeb
+}
+
+.side_nav .logo {
+	position: absolute;
+	top: 0;
+	width: 132px
+}
+
+.side_nav .logo {
+	display: none
+}
+
+.affix {
+	height: 30px;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	margin-left: -605px;
+	z-index: 2;
+	margin-top: 0;
+	background: #FFF;
+	padding: 3px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+	border-radius: 3px
+}
+
+.side_nav.affix {
+	top: 0
+}
+
+.side_nav.affix {
+	padding-top: 70px
+}
+
+.side_nav.affix .logo, .side_nav.affix-bottom .logo {
+	display: block
+}
+
+.side_nav .bottom, .side_nav .content {
+	background: #fff;
+	line-height: 26px
+}
+
+.side_nav .bd {
+	padding: 5px 0
+}
+
+.side_nav ul {
+	zoom: 1;
+	padding: 0 10px
+}
+
+.side_nav li .light {
+	color: #E63955
+}
+
+.side_nav li a:hover {
+	color: #E63955;
+	background-color: #f5f5f5
+}
+
+.side_nav ul:after {
+	clear: both;
+	content: "";
+	line-height: 0;
+	font-size: 0;
+	visibility: hidden;
+	display: block
+}
+
+.side_nav li {
+	float: left;
+	width: 50%;
+	line-height: 30px;
+	height: 29px
+}
+
+.side_nav li a {
+	color: #666;
+	display: inline-block;
+	text-decoration: none;
+	padding: 2px 4px 1px 4px;
+	line-height: 19px;
+	border-radius: 2px;
+	position: relative;
+	font-size: 12px;
+	font-family: "宋体"
+}
+
+.side_nav li .on {
+	color: #FFF;
+	background-color: #E63955
+}
+
+.side_nav .line {
+	border-top: 1px solid #f0f0f0;
+	margin: 0 10px
+}
+
+.side_nav .bdc {
+	margin: 5px 0 10px 0;
+	background-color: #FFF
+}
+
+.side_nav .bdc ul {
+	margin-bottom: 5px
+}
+
+.side_nav .bdc ul li a i {
+	display: block;
+	float: left;
+	height: 20px;
+	width: 20px;
+	background: url(../images/common/cat.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/cat.png*/ no-repeat;
+	line-height: 20px
+}
+
+.side_nav .bdc ul .bdccid_6 i {
+	background-position: 0 center
+}
+
+.side_nav .bdc ul .bdccid_7 i {
+	background-position: -20px center
+}
+
+.side_nav .bdc ul .bdccid_8 i {
+	background-position: -60px center
+}
+
+.side_nav .bdc ul .bdccid_9 i {
+	background-position: -80px center
+}
+
+.side_nav .bdc ul .bdccid_10 i {
+	background-position: -100px center
+}
+
+.side_nav .bdc ul .bdccid_11 i {
+	background-position: -153px center
+}
+
+.side_nav .bdc ul .bdccid_12 i {
+	background-position: -119px center
+}
+
+.side_nav .bdc ul .bdccid_13 i {
+	background-position: -137px center
+}
+
+.side_nav .bdc ul .bdccid_14 i {
+	background-position: -40px center
+}
+
+.side_nav .bdc ul .bdccid_15 i {
+	background-position: -170px center
+}
+
+.side_nav .bdc ul li a:hover {
+	background-color: #f5f5f5
+}
+
+.side_nav .bdc ul .bdccid_6 a:hover i {
+	background-position: -192px center
+}
+
+.side_nav .bdc ul .bdccid_7 a:hover i {
+	background-position: -212px center
+}
+
+.side_nav .bdc ul .bdccid_8 a:hover i {
+	background-position: -252px center
+}
+
+.side_nav .bdc ul .bdccid_9 a:hover i {
+	background-position: -270px center
+}
+
+.side_nav .bdc ul .bdccid_10 a:hover i {
+	background-position: -292px center
+}
+
+.side_nav .bdc ul .bdccid_11 a:hover i {
+	background-position: -345px center
+}
+
+.side_nav .bdc ul .bdccid_12 a:hover i {
+	background-position: -311px center
+}
+
+.side_nav .bdc ul .bdccid_13 a:hover i {
+	background-position: -329px center
+}
+
+.side_nav .bdc ul .bdccid_14 a:hover i {
+	background-position: -232px center
+}
+
+.side_nav .bdc ul .bdccid_15 a:hover i {
+	background-position: -362px center
+}
+
+.side_nav .bdc ul li .on {
+	background-color: #E63955
+}
+
+.side_nav .search {
+	display: block;
+	padding-left: 17px
+}
+
+.side_nav .search .txt {
+	width: 73px;
+	background: #fff;
+	height: 24px;
+	line-height: 20px;
+	border: 1px solid #e5e5e5;
+	padding: 1px 5px;
+	border-right: none
+}
+
+.side_nav .search .smt {
+	width: 28px;
+	height: 28px;
+	background: url(../images/common/cat.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/cat.png*/ no-repeat #FFF center;
+	cursor: pointer;
+	padding: 0;
+	display: inline-block;
+	vertical-align: bottom;
+	border: none;
+	background-position: -378px center;
+	border: solid 1px #e5e5e5;
+	outline: 0;
+	filter: chroma(color=#000000)
+}
+
+.side_nav .zhi_guang {
+	border: none;
+	border-top: 1px solid #f0f0f0;
+	padding: 5px 2px;
+	text-align: center
+}
+
+.side_nav .move_padding {
+	padding: 0 15px;
+	margin-bottom: 5px;
+	overflow: hidden
+}
+
+.side_nav .add_link {
+	position: relative;
+	height: 27px;
+	border: 1px solid #e2e2e2;
+	margin-top: 0;
+	margin-bottom: 10px;
+	background-color: #f4f4f4
+}
+
+.side_nav .add_link a {
+	text-decoration: none
+}
+
+.side_nav .add_link i {
+	display: inline-block;
+	background: url(../images/common/nav_bg.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/nav_bg.png*/
+}
+
+.side_nav .add_link .subscribe_w {
+	background: url(../images/common/nav_bg.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/nav_bg.png*/ ;
+	float: left;
+	margin: 8px 0 0 10px;
+	height: 15px;
+	width: 15px;
+	background-position: -38px -158px
+}
+
+.side_nav .bd .add_link span {
+	margin: 2px 0 0 5px;
+	font-size: 12px;
+	color: #666;
+	width: 70px;
+	display: inline-block
+}
+
+.side_nav .add_link a {
+	text-decoration: none
+}
+
+.side_nav .add_link .contact_w {
+	float: left;
+	margin: 8px 0 0 10px;
+	height: 15px;
+	width: 15px;
+	background-position: -7px -158px
+}
+
+.side_nav .bd .add_link_hover a span {
+	cursor: pointer;
+	color: #c50202
+}
+
+.flutter {
+	position: fixed;
+	top: 0
+}
+
+.flutter .logo {
+	display: block
+}
+
+undefined .nosearch {
+	overflow: hidden;
+	background: #fff;
+	padding: 55px 0 85px;
+	clear: both;
+	margin-bottom: 20px
+}
+
+.nosearch .con {
+	width: 830px;
+	height: 228px;
+	margin: 0 auto
+}
+
+.nosearch .con .tips-img {
+	/* background: url(../images/common/nosrarch.jpg) no-repeat; */
+	width: 256px;
+	height: 260px;
+	float: left;
+	margin-left: 10px
+}
+
+.nosearch .con .txt-tips {
+	height: auto;
+	margin: 80px 0 0 -20px;
+	float: left
+}
+
+.nosearch .con .txt-tips .txt-img {
+	width: auto;
+	height: auto;
+	line-height: 30px;
+	position: relative;
+	color: #ff7a70;
+	font-size: 24px;
+	font-family: "微软雅黑", "宋体";
+	display: inline-block;
+	margin-bottom: 10px
+}
+
+.search-tao {
+	width: 580px;
+	height: auto;
+	overflow: hidden;
+	margin-top: 8px
+}
+
+.con_coming {
+	display: block;
+	/* background: url(../images/common/nostart.png) no-repeat center; */
+	height: 300px;
+	width: 100%;
+	margin-top: -30px
+}
+
+.error_404 {
+	padding: 55px 0 85px;
+	display: block;
+	/* background: url(../images/common/404.png) no-repeat center; */
+	height: 381px;
+	width: 917px;
+	margin: 0 auto;
+	position: relative
+}
+
+.error_404 .a404 {
+	width: 100%;
+	height: 100%;
+	display: block;
+	position: absolute
+}
+
+.page {
+	height: 35px;
+	padding: 8px 0 8px 0;
+	text-align: center;
+	display: block
+}
+
+.page .list_page {
+	text-align: center;
+	vertical-align: middle;
+	font-size: 0;
+	line-height: 0;
+	display: inline-block
+}
+
+.list_page span {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0
+}
+
+.list_page span.grp {
+	font-size: 14px;
+	line-height: 40px;
+	font-weight: 700;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	border: 1px solid #d8d8d8;
+	border-left: 0;
+	color: #666;
+	background-color: #f0f0f0
+}
+
+.list_page a {
+	border: solid 1px #E2E1E1;
+	color: #666;
+	background-color: #FFF;
+	width: 40px;
+	font-size: 14px;
+	height: 35px;
+	line-height: 35px;
+	font-weight: 100;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	font-family: "Microsoft YaHei"
+}
+
+.list_page a:hover {
+	border: 1px solid #D2D2D2;
+	text-decoration: none;
+	border-color: #E63955
+}
+
+.list_page span.current a {
+	background-color: #dd2e4b;
+	color: #fff;
+	cursor: inherit;
+	text-decoration: none
+}
+
+.page .picnext {
+	width: 225px;
+	height: 95px;
+	display: inline-block;
+	vertical-align: top;
+	margin: -22px 0 0 20px
+}
+
+.pagination {
+	display: block;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px
+}
+
+.pagination ul {
+	display: inline-block
+}
+
+.pagination li {
+	margin-right: 1px;
+	border-radius: 2px
+}
+
+.pagination li a {
+	display: block;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	padding: 2px 5px;
+	border-radius: 2px;
+	color: #999;
+	min-width: 20px
+}
+
+.pagination li a:hover {
+	color: #c00
+}
+
+.pagination li.on {
+	background-color: #c00;
+	border: none;
+	border-radius: 2px;
+	border: 1px solid #c00
+}
+
+.pagination li.on a {
+	color: #fff
+}
+
+.pagination li.morePage a {
+	border-right: none
+}
+
+.footer {
+	width: 100%;
+	background: url(../images/common/foot.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/foot.png*/ repeat-x center top;
+	border-top: none;
+	margin-top: 20px;
+	overflow: hidden
+}
+
+.footer .foot {
+	padding: 20px 0 0 1px;
+	margin: 0 auto;
+	width: 1200px
+}
+
+.foot_info {
+	overflow: hidden;
+	float: left;
+	width: 280px;
+	line-height: 25px
+}
+
+.foot_info .follow {
+	display: block;
+	height: 35px
+}
+
+.foot_info .follow ul li {
+	float: left;
+	width: 32px;
+	height: 32px;
+	margin-right: 9px;
+	overflow: hidden
+}
+
+.foot_info .follow ul li a {
+	display: block;
+	background: url(../images/common/head_ico1.gif)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/head_ico1.gif*/ no-repeat 0 -62px;
+	text-indent: -999px;
+	width: 32px;
+	height: 32px
+}
+
+.foot_info .follow ul li .tt {
+	background-position: -82px -62px
+}
+
+.foot_info .follow ul li .kik {
+	background-position: -123px -62px
+}
+
+.foot_info .follow ul li .qzone {
+	background-position: -41px -62px
+}
+
+.foot_info .follow ul li .tb {
+	background-position: -164px -62px
+}
+
+.foot_right {
+	float: right;
+	padding: 20px 0;
+	text-align: center;
+	border-left: solid 1px #e0e0e0;
+	padding: 3px 0 0 0;
+	border: none
+}
+
+.foot .foot_link {
+	float: left;
+	margin-left: -30px;
+	width: 950px
+}
+
+.foot .foot_link dl {
+	margin-left: 80px
+}
+
+.foot .foot_link dl.link_safe {
+	width: 490px;
+	margin-left: 40px
+}
+
+.link_safe a {
+	float: left;
+	height: 30px;
+	width: 80px;
+	margin-right: 5px;
+	vertical-align: top
+}
+
+.link_safe .kx {
+	background: url(../images/footer/cnnic.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/footer/cnnic.png*/ no-repeat;
+	background-size: 80px auto
+}
+
+.link_safe .s360 {
+	background: url(../images/footer/360.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/footer/360.png*/ no-repeat;
+	background-size: 80px auto
+}
+
+.index_collection {
+	background-color: #fff;
+	overflow: hidden
+}
+
+.index_collection .top {
+	background-color: #fff4db;
+	padding: 10px 0 8px;
+	text-align: center
+}
+
+.index_collection .top p {
+	cursor: pointer
+}
+
+.wait {
+	display: none;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10002;
+	background: #000;
+	filter: alpha(Opacity=80);
+	-moz-opacity: .5;
+	opacity: .5
+}
+
+.wait img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px
+}
+
+.show_box_msg {
+	display: none;
+	left: 40%;
+	position: fixed;
+	top: 190px;
+	width: 284px;
+	z-index: 10003;
+	height: 102px
+}
+
+.show_box_msg .outer {
+	margin: 0;
+	position: relative;
+	z-index: 97;
+	overflow: visible;
+	height: auto;
+	width: 284px
+}
+
+.show_box_msg .outer .title {
+	padding: 14px 5px 4px 10px;
+	font-weight: 400;
+	font-size: 1.1em;
+	color: #fff;
+	text-align: center;
+	font-family: "微软雅黑";
+	background: url(../images/msg/prompt1.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/msg/prompt1.png*/ no-repeat;
+	overflow: hidden;
+	position: relative
+}
+
+.show_box_msg .outer .title .close {
+	float: right;
+	position: absolute;
+	top: 2px;
+	right: 2px
+}
+
+.show_box_msg .outer .title .close a {
+	font-size: .95em;
+	color: #d9d9c2;
+	display: block;
+	width: 28px;
+	height: 25px
+}
+
+.show_box_msg .inner {
+	padding: 10px;
+	text-align: center;
+	color: #6c5b5b;
+	font-size: 14px;
+	background: url(../images/msg/prompt2.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/msg/prompt2.png*/ repeat-y
+}
+
+.show_box_msg .inner p {
+	margin: 5px 0
+}
+
+.show_box_msg .inner .inner_report {
+	padding: 5px;
+	width: 230px;
+	font-size: 12px
+}
+
+.show_box_msg .inner select {
+	width: 250px;
+	color: #999;
+	padding: 4px;
+	border: 1px solid #ccc;
+	margin-bottom: 10px
+}
+
+.show_box_msg .inner .inner_report option {
+	border: 1px solid #999
+}
+
+.show_box_msg .inner .inner_report .other_label {
+	font-size: 14px;
+	margin-left: 10px
+}
+
+.show_box_msg .inner .inner_report .other_text {
+	border: 1px solid #ccc;
+	color: #999;
+	padding: 4px;
+	width: 147px
+}
+
+.show_box_msg .inner .inner_report .sub_btn {
+	color: #FFF;
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: 700;
+	margin: 15px 0 5px 30px;
+	width: 95px;
+	margin-top: 10px;
+	height: 32px;
+	background: url(../images/msg/sub.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/msg/sub.png*/ no-repeat;
+	text-indent: 999999px
+}
+
+.show_box_msg .msg_footer {
+	background: url(../images/msg/prompt3.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/msg/prompt3.png*/ no-repeat;
+	width: 284px;
+	height: 16px
+}
+
+.redm_c {
+	width: 500px;
+	height: 145px;
+	margin: 100px auto;
+	border: 1px solid #E02F2F;
+	background: #fff;
+	position: relative
+}
+
+.redm_c .title {
+	background-color: #cf201c;
+	color: #fff;
+	line-height: 30px;
+	padding-left: 10px
+}
+
+.redm_c .icon {
+	width: 100px;
+	height: 100px
+}
+
+.redm_c .warning {
+	background: url(../images/icon/warning.gif.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/icon/warning.gif*/ no-repeat center;
+	background-size: 100px 100px
+}
+
+.redm_c .error {
+	background: url(../images/icon/error.gif.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/icon/error.gif*/ no-repeat center;
+	background-size: 100px 100px
+}
+
+.redm_c .ok {
+	background: url(../images/icon/ok.gif.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/icon/ok.gif*/ no-repeat center;
+	background-size: 100px 100px
+}
+
+.redm_c .mess {
+	margin-top: 20px;
+	display: block;
+	width: 380px;
+	margin-left: 10px
+}
+
+.redm_c .jumpmsg, .redm_c .link {
+	margin-top: 10px;
+	display: block;
+	width: 380px;
+	margin-left: 10px
+}
+
+.redm_c .jumpmsg a {
+	color: #09c
+}
+
+.redm_c .link a {
+	margin-right: 15px;
+	color: #bf7c53
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: none
+}
+
+blockquote, body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, html, li, map, ol, p, pre, table, td, th, ul {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	font-family: "Microsoft YaHei";
+	color: #525252
+}
+
+* html, * html body {
+	background-image: url(about:blank);
+	background-attachment: fixed
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+	font-style: inherit;
+	font-weight: inherit
+}
+
+del, ins {
+	text-decoration: none
+}
+
+caption, th {
+	text-align: left
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 400
+}
+
+dl, li, ol, ul {
+	list-style: none
+}
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word
+}
+
+button, input, optgroup, option, select, textarea {
+	resize: none;
+	outline: 0;
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	word-wrap: break-word
+}
+
+fieldset, img {
+	border: 0
+}
+
+legend {
+	display: none
+}
+
+a {
+	color: #666;
+	text-decoration: none
+}
+
+a:hover {
+	color: #E63955
+}
+
+a:focus {
+	outline: 0
+}
+
+em {
+	font-style: normal
+}
+
+body {
+	font-size: 12px;
+	font-family: Arial
+}
+
+q:after, q:before {
+	content: ""
+}
+
+.clear_f {
+	clear: both;
+	overflow: hidden;
+	height: 0
+}
+
+.c_f {
+	text-align: center
+}
+
+.hidden_f {
+	overflow: hidden
+}
+
+.v_hidden {
+	visibility: hidden
+}
+
+.tunder_f {
+	text-decoration: underline
+}
+
+.nowrap_f {
+	white-space: nowrap
+}
+
+.none_f {
+	display: none
+}
+
+.inline_f {
+	display: inline
+}
+
+.block_f {
+	display: block
+}
+
+.i_block_f {
+	display: inline-block
+}
+
+.auto_f {
+	margin-left: auto;
+	margin-right: auto
+}
+
+.left_f {
+	float: left
+}
+
+.right_f {
+	float: right
+}
+
+.pa_f {
+	position: absolute
+}
+
+.pr_f {
+	position: relative
+}
+
+.cursor_f {
+	cursor: pointer
+}
+
+.clearfix_f:after {
+	clear: both;
+	content: ".";
+	display: block;
+	visibility: hidden;
+	height: 0
+}
+
+.f12 {
+	font-size: 12px
+}
+
+.f13 {
+	font-size: 13px
+}
+
+.f14 {
+	font-size: 14px
+}
+
+.f16 {
+	font-size: 16px
+}
+
+.f18 {
+	font-size: 18px
+}
+
+.f20 {
+	font-size: 20px
+}
+
+.fb {
+	font-weight: 700
+}
+
+.fn {
+	font-weight: 400
+}
+
+.t2 {
+	text-indent: 2em
+}
+
+.lh20 {
+	line-height: 20px
+}
+
+.lh23 {
+	line-height: 23px
+}
+
+.lh25 {
+	line-height: 25px
+}
+
+.lh30 {
+	line-height: 30px
+}
+
+.tl {
+	text-align: left
+}
+
+.tc {
+	text-align: center
+}
+
+.tr {
+	text-align: right
+}
+
+.bc {
+	margin-left: auto;
+	margin-right: auto;
+	display: block
+}
+
+.w10 {
+	width: 10px
+}
+
+.w20 {
+	width: 20px
+}
+
+.w30 {
+	width: 30px
+}
+
+.w40 {
+	width: 40px
+}
+
+.w50 {
+	width: 50px
+}
+
+.w60 {
+	width: 60px
+}
+
+.w70 {
+	width: 70px
+}
+
+.w80 {
+	width: 80px
+}
+
+.w90 {
+	width: 90px
+}
+
+.w100 {
+	width: 100px
+}
+
+.w200 {
+	width: 200px
+}
+
+.w300 {
+	width: 300px
+}
+
+.w400 {
+	width: 400px
+}
+
+.w500 {
+	width: 500px
+}
+
+.w600 {
+	width: 600px
+}
+
+.w700 {
+	width: 700px
+}
+
+.w800 {
+	width: 800px
+}
+
+.w980 {
+	width: 980px
+}
+
+.w {
+	width: 100%
+}
+
+.h40 {
+	height: 40px
+}
+
+.h50 {
+	height: 50px
+}
+
+.h80 {
+	height: 80px
+}
+
+.h90 {
+	height: 90px
+}
+
+.h100 {
+	height: 100px
+}
+
+.h200 {
+	height: 200px
+}
+
+.h {
+	height: 100%
+}
+
+.m5 {
+	margin: 5px
+}
+
+.m10 {
+	margin: 10px
+}
+
+.m15 {
+	margin: 15px
+}
+
+.m20 {
+	margin: 20px
+}
+
+.m30 {
+	margin: 30px
+}
+
+.mt5 {
+	margin-top: 5px
+}
+
+.mt10 {
+	margin-top: 10px
+}
+
+.mt15 {
+	margin-top: 15px
+}
+
+.mt20 {
+	margin-top: 20px
+}
+
+.mt30 {
+	margin-top: 30px
+}
+
+.mt35 {
+	margin-top: 35px
+}
+
+.mt50 {
+	margin-top: 50px
+}
+
+.mt100 {
+	margin-top: 100px
+}
+
+.mb5 {
+	margin-bottom: 5px
+}
+
+.mb10 {
+	margin-bottom: 10px
+}
+
+.mb15 {
+	margin-bottom: 15px
+}
+
+.mb20 {
+	margin-bottom: 20px
+}
+
+.mb30 {
+	margin-bottom: 30px
+}
+
+.mb50 {
+	margin-bottom: 50px
+}
+
+.mb100 {
+	margin-bottom: 100px
+}
+
+.ml5 {
+	margin-left: 5px
+}
+
+.ml10 {
+	margin-left: 10px
+}
+
+.ml15 {
+	margin-left: 15px
+}
+
+.ml20 {
+	margin-left: 20px
+}
+
+.ml30 {
+	margin-left: 30px
+}
+
+.ml50 {
+	margin-left: 50px
+}
+
+.ml100 {
+	margin-left: 100px
+}
+
+.mr5 {
+	margin-right: 5px
+}
+
+.mr10 {
+	margin-right: 10px
+}
+
+.mr15 {
+	margin-right: 15px
+}
+
+.mr20 {
+	margin-right: 20px
+}
+
+.mr30 {
+	margin-right: 30px
+}
+
+.mr40 {
+	margin-right: 40px
+}
+
+.mr50 {
+	margin-right: 50px
+}
+
+.mr100 {
+	margin-right: 100px
+}
+
+.p10 {
+	padding: 10px
+}
+
+.p15 {
+	padding: 15px
+}
+
+.p30 {
+	padding: 30px
+}
+
+.pt5 {
+	padding-top: 5px
+}
+
+.pt10 {
+	padding-top: 10px
+}
+
+.pt15 {
+	padding-top: 15px
+}
+
+.pt20 {
+	padding-top: 20px
+}
+
+.pt30 {
+	padding-top: 30px
+}
+
+.pt50 {
+	padding-top: 50px
+}
+
+.pt100 {
+	padding-top: 100px
+}
+
+.pb5 {
+	padding-bottom: 5px
+}
+
+.pb10 {
+	padding-bottom: 10px
+}
+
+.pb15 {
+	padding-bottom: 15px
+}
+
+.pb20 {
+	padding-bottom: 20px
+}
+
+.pb30 {
+	padding-bottom: 30px
+}
+
+.pb50 {
+	padding-bottom: 50px
+}
+
+.pb100 {
+	padding-bottom: 100px
+}
+
+.pl5 {
+	padding-left: 5px
+}
+
+.pl10 {
+	padding-left: 10px
+}
+
+.pl15 {
+	padding-left: 15px
+}
+
+.pl20 {
+	padding-left: 20px
+}
+
+.pl30 {
+	padding-left: 30px
+}
+
+.pl50 {
+	padding-left: 50px
+}
+
+.pl100 {
+	padding-left: 100px
+}
+
+.pr5 {
+	padding-right: 5px
+}
+
+.pr10 {
+	padding-right: 10px
+}
+
+.pr15 {
+	padding-right: 15px
+}
+
+.pr20 {
+	padding-right: 20px
+}
+
+.pr30 {
+	padding-right: 30px
+}
+
+.pr50 {
+	padding-right: 50px
+}
+
+.pr100 {
+	padding-right: 100px
+}
+
+.red_f {
+	color: #E63955
+}
+
+.side_right {
+	margin-left: 525px
+}
+
+.links {
+	width: 1200px;
+	height: 15px;
+	overflow: hidden;
+	padding: 10px 0;
+	white-space: nowrap;
+	overflow: hidden;
+	margin: 0 auto
+}
+
+.links span {
+	display: block;
+	overflow: hidden;
+	float: left
+}
+
+.links .links_list_box {
+	float: left;
+	width: 830px;
+	position: relative;
+	overflow: hidden;
+	height: 17px;
+	line-height: 17px
+}
+
+.links .more {
+	float: right
+}
+
+.links .links_list {
+	overflow: hidden;
+	width: 830px;
+	white-space: nowrap;
+	overflow: hidden;
+	position: relative
+}
+
+.links .links_list li {
+	width: 830px;
+	white-space: nowrap;
+	overflow: hidden
+}
+
+.links .links_list_box a {
+	margin-left: 10px;
+	float: left;
+	line-height: 17px;
+	color: #a5a5a5
+}
+
+#uinfo_bar .header_top {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 6px
+}
+
+#uinfo_bar .menu_leo {
+	display: inline;
+	height: 38px;
+	float: right
+}
+
+#uinfo_bar .menu_leo>li {
+	float: left;
+	height: 38px;
+	position: relative;
+	z-index: 2
+}
+
+#uinfo_bar .menu_leo>li>a {
+	display: block;
+	border-left: 1px dotted #CCC;
+	height: 18px;
+	line-height: 18px;
+	margin-top: 10px;
+	padding-left: 15px;
+	padding-right: 15px
+}
+
+#uinfo_bar .menu_leo>li .s_face {
+	float: left;
+	height: 16px;
+	padding-right: 10px;
+	width: 16px
+}
+
+#uinfo_bar .menu_leo>li .s_face img {
+	height: 16px;
+	width: 16px
+}
+
+#uinfo_bar .menu_leo>li a.first {
+	border: 0
+}
+
+#uinfo_bar .i_member, #uinfo_bar .i_mob, #uinfo_bar .i_qq, #uinfo_bar .i_taobao {
+	background: url(../images/topbar/topbar.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/topbar/topbar.png*/ no-repeat;
+	padding: 1px 8px
+}
+
+#uinfo_bar .i_qq {
+	background-position: 0 -28px
+}
+
+#uinfo_bar .i_taobao {
+	background-position: 0 -2px
+}
+
+#uinfo_bar .i_member {
+	background-position: 0 -111px
+}
+
+#uinfo_bar .i_mob {
+	background-position: 3px -83px
+}
+
+#uinfo_bar .mod_topmenu {
+	position: absolute;
+	height: 38px;
+	display: inline
+}
+
+#uinfo_bar .mod_topmenu li {
+	float: left;
+	display: inline
+}
+
+#uinfo_bar .mod_topmenu li a {
+	display: inline-block;
+	height: 38px;
+	padding: 0 11px;
+	line-height: 38px
+}
+
+#uinfo_bar .mod_topmenu li.menu_on a {
+	color: #E63955
+}
+
+.sec_menu {
+	border-bottom: 2px solid #E73A56;
+	background-color: #fff
+}
+
+.sec_menu_fixed {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 3
+}
+
+.scroll-nav-main {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 40px;
+	background-color: #E73A56;
+	z-index: 1000;
+	background: rgba(255, 255, 255, .9);
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .1)
+}
+
+.scroll-nav-main .scroll-nav {
+	margin: 0 auto
+}
+
+.scroll-nav-main li {
+	float: left;
+	margin-right: 10px
+}
+
+.scroll-nav .n_h a, .scroll-nav-main li a {
+	display: inline-block;
+	height: 38px;
+	line-height: 38px;
+	color: #666;
+	padding: 0 5px;
+	min-width: 26px;
+	text-align: center
+}
+
+.scroll-nav-main li.active {
+	border-bottom: 2px #E73A56 solid
+}
+
+.cate_logo {
+	float: left;
+	height: 40px;
+	margin-right: 40px
+}
+
+.nav-other {
+	padding-left: 20px;
+	float: right;
+	margin-right: 20px
+}
+
+.taobaoad {
+	width: 980px;
+	margin-left: auto;
+	margin-right: auto;
+	text-algin: center
+}
+
+.scroll-nav .n_h {
+	float: right;
+	color: #999;
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px
+}
+
+.n_h input {
+	padding: 3px;
+	float: left;
+	border: 0;
+	margin-top: 8px;
+	width: 140px;
+	height: 19px;
+	color: #aaa;
+	border: 1px solid #d0d2d4
+}
+
+.n_h .btn2 {
+	background-color: #E73A56;
+	border: 0 none;
+	color: #fff;
+	cursor: pointer;
+	outline: 0 none;
+	padding: 2px;
+	float: left;
+	margin-top: 8px;
+	height: 27px;
+	width: 50px
+}
+
+.nav-other em {
+	width: 20px;
+	position: relative;
+	top: -7px;
+	left: -6px;
+	height: 14px;
+	padding: 0 5px;
+	background: #ED1C24;
+	color: #FFF;
+	font: 400 10px/14px Arial;
+	border-radius: 5px;
+	text-align: center
+}
+
+.nine_bg {
+	width: 100%
+}
+
+.quanhoujiage {
+	width: 60px;
+	height: 24px;
+	background: url(../images/goods/juan.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/juan.png*/ no-repeat;
+	position: absolute;
+	left: 15px;
+	z-index: 999;
+	bottom: 80px
+}
+
+.qg-img-tag {
+	position: absolute;
+	top: 0;
+	left: 213px;
+	height: 75px;
+	width: 75px;
+	z-index: 5;
+	cursor: pointer;
+	text-align: center;
+	line-height: 75px;
+	background: url(../images/goods/getcuponbk.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/getcuponbk.png*/ no-repeat
+}
+
+.qg-img-tag em {
+	display: inline-block;
+	font-size: 14px;
+	color: #fff
+}
+
+.quanhoujiage1 {
+	width: 60px;
+	height: 24px;
+	background: url(../images/goods/juan.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/juan.png*/ no-repeat;
+	position: absolute;
+	left: 365px;
+	z-index: 999;
+	bottom: 190px
+}
+
+.qg-img-tag1 {
+	position: absolute;
+	top: 21px;
+	left: 234px;
+	height: 75px;
+	width: 75px;
+	z-index: 5;
+	cursor: pointer;
+	text-align: center;
+	line-height: 75px;
+	background: url(../images/goods/getcuponbk.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/getcuponbk.png*/ no-repeat
+}
+
+.qg-img-tag1 em {
+	display: inline-block;
+	font-size: 14px;
+	color: #fff
+}
+
+.quanhoujiage2 {
+	width: 60px;
+	height: 24px;
+	background: url(../images/goods/juan.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/juan.png*/ no-repeat;
+	position: absolute;
+	left: 365px;
+	z-index: 999;
+	bottom: 190px
+}
+
+.qg-img-tag2 {
+	position: absolute;
+	top: 156px;
+	left: 165px;
+	height: 60px;
+	width: 60px;
+	z-index: 5;
+	cursor: pointer;
+	text-align: center;
+	line-height: 60px;
+	background: url(../images/goods/getcuponbk2.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/getcuponbk2.png*/ no-repeat
+}
+
+.qg-img-tag2 em {
+	display: inline-block;
+	font-size: 10px;
+	color: #fff
+}
+
+.quanhoujiage3 {
+	width: 60px;
+	height: 18px;
+	background: url(../images/goods/juan.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/juan.png*/ no-repeat;
+	position: absolute;
+	left: 5px;
+	z-index: 999;
+	bottom: 25px
+}
+
+.qg-img-tag3 {
+	position: absolute;
+	top: 0;
+	left: 205px;
+	height: 75px;
+	width: 75px;
+	z-index: 5;
+	cursor: pointer;
+	text-align: center;
+	line-height: 75px;
+	background: url(../images/goods/getcuponbk.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/getcuponbk.png*/ no-repeat
+}
+
+.qg-img-tag3 em {
+	display: inline-block;
+	font-size: 14px;
+	color: #fff
+}
+
+.sale-title {
+	position: relative;
+	display: inline-block;
+	float: right;
+	margin: 2px 0 0;
+	z-index: 9
+}
+
+.sale-title .icon-pJuan {
+	width: 36px;
+	height: 20px;
+	background: url(../images/goods/default.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/default.png*/ no-repeat
+}
+
+.sale-title .sale-title-font {
+	float: left;
+	display: inline-block;
+	padding: 3px 6px;
+	font-family: "宋体", sans-serif;
+	line-height: 12px;
+	color: #f35;
+	border: 1px solid #f35;
+	border-left: 0;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px
+}
+
+.sale-title .pline {
+	color: #b432d9;
+	border-color: #b432d9
+}
+
+.sale-title .pline a {
+	float: none;
+	line-height: 0;
+	color: #b432d9
+}
+
+.sale-title-font em {
+	font-family: Arial, sans-serif
+}
+
+.sale-title .icon {
+	float: left;
+	display: inline-block;
+	width: 36px;
+	height: 20px;
+	line-height: 20px;
+	color: #fff;
+	text-align: center
+}
+
+.sale-title .icon-Juan {
+	background: url(../images/goods/default.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/goods/default.png*/ no-repeat
+}

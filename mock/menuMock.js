@@ -62,6 +62,15 @@ const menu = {
       permission: ['view', 'add', 'delete', 'edit'],
       show: true,
       children: []
+    },
+    {
+      id: 12,
+      label: '淘首页',
+      href: '/page_tbk/home',
+      icon: 'fa fa-file-text',
+      permission: ['view', 'add', 'delete', 'edit'],
+      show: true,
+      children: []
     }
   ],
   user: [
