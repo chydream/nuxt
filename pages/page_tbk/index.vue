@@ -250,11 +250,10 @@ export default {
         console.log(res)
         this.tableData = res.tbk_item_info_get_response.results.n_tbk_item
         this.tableLoading = false
+      }).catch((err) => {
+        console.log(err)
+        this.tableLoading = false
       })
-        .catch((err) => {
-          console.log(err)
-          this.tableLoading = false
-        })
     },
     handleView (row) {
       this.$router.push({ path: '/indexList', query: { industry: row.industry } })
