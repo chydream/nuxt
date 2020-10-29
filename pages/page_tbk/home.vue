@@ -1152,43 +1152,11 @@
           <ul class="links_list" style="margin-top: -17px">
             <li>
               <a href="http://www.jiuky.com/" target="_blank">九块邮官网</a>
-              <a href="http://www.jiuky.com/" target="_blank">九块邮</a>
-              <a href="http://www.jiuky.com/" target="_blank">九块九包邮购</a>
-              <a href="http://www.jiuky.com/" target="_blank">9.9包邮</a>
-              <a href="http://www.jiuky.com/" target="_blank">九块九</a>
-              <a href="http://www.jiuky.com/" target="_blank">9块9包邮</a>
-              <a href="http://www.baobeio.com/" target="_blank">免费试用网</a>
-              <a href="http://www.176quan.com" target="_blank">一起领券网</a>
-              <a href="http://www.maidxi.com/" target="_blank">九块邮官网</a>
-              <a href="http://www.huoniuniu.com/" target="_blank">货牛牛</a>
-              <a href="http://www.jiuky.com/goods/nine" target="_blank"
-                >九块九包邮</a
-              >
-              <a href="http://www.1925.cn/" target="_blank">饰品批发</a>
-              <a href="http://www.178hui.com/" target="_blank">返利网</a>
-              <a href="http://www.52youa.cn" target="_blank">微商货源</a>
-              <a href="http://www.gouwujp.com/" target="_blank">日本代购</a>
             </li>
           </ul>
         </div>
-        <a href="http://www.jiuky.com/help/link" target="_blank" class="more"
-          >更多&gt;&gt;</a
-        >
+        <a href="http://www.jiuky.com/help/link" target="_blank" class="more">更多&gt;&gt;</a>
       </div>
-      <script type="text/javascript">
-        //友情链接滚动
-        if ($('.links_list li').length > 0) {
-          var ulheight = parseInt($('.links_list').height())
-          setInterval(function () {
-            var marginTop = parseInt($('.links_list').css('marginTop'))
-            marginTop = marginTop - 17
-            if (ulheight <= Math.abs(marginTop)) {
-              marginTop = 0
-            }
-            $('.links_list').animate({ marginTop: marginTop + 'px' }, 800)
-          }, 5e3)
-        }
-      </script>
     </div>
   </div>
 </template>
