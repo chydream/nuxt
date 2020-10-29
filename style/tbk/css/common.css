@@ -867,7 +867,7 @@ undefined .nosearch {
 	border-right: none
 }
 
-.footer {
+.footer-new {
 	width: 100%;
 	background: url(../images/common/foot.png)/*tpa=http://www.jiuky.com/home/template/jiuky/static/images/common/foot.png*/ repeat-x center top;
 	border-top: none;
@@ -875,7 +875,7 @@ undefined .nosearch {
 	overflow: hidden
 }
 
-.footer .foot {
+.footer-new .foot {
 	padding: 20px 0 0 1px;
 	margin: 0 auto;
 	width: 1200px

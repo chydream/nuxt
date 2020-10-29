@@ -1,7 +1,7 @@
 <template>
   <div class="default">
     <n-header></n-header>
-    <div class="main" style="height:1100px;">
+    <div class="main">
       <Nuxt />
     </div>
     <n-footer></n-footer>
@@ -15,8 +15,8 @@ import { getClientHeight } from '@/util/tool'
 export default {
   name: 'default',
   components: {
-    // nHeader,
-    // nFooter
+    nHeader,
+    nFooter
   },
   computed: {
     height () {
