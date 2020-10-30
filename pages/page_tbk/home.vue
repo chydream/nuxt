@@ -111,50 +111,8 @@
         </div>
         <div class="banner_l">
           <div class="content">
-            <a href="http://www.jiuky.com/cat-6" class="cat_6" title="女装">
-              <i style="background-position: 0px 3px"></i><span>女装</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-7" class="cat_7" title="男装">
-              <i style="background-position: 0px -38px"></i><span>男装</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-8" class="cat_8" title="鞋品">
-              <i style="background-position: 0px -76px"></i><span>鞋品</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-9" class="cat_9" title="配饰">
-              <i style="background-position: 0px -114px"></i><span>配饰</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-10" class="cat_10" title="美食">
-              <i style="background-position: 0px -152px"></i><span>美食</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-11" class="cat_11" title="美妆">
-              <i style="background-position: 0px -190px"></i><span>美妆</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-12" class="cat_12" title="母婴">
-              <i style="background-position: 0px -228px"></i><span>母婴</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-13" class="cat_13" title="数码">
-              <i style="background-position: 0px -266px"></i><span>数码</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-26" class="cat_26" title="箱包">
-              <i style="background-position: 0px -304px"></i><span>箱包</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-14" class="cat_14" title="居家">
-              <i style="background-position: 0px -342px"></i><span>居家</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-22" class="cat_22" title="内衣">
-              <i></i><span>内衣</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-15" class="cat_15" title="文体">
-              <i></i><span>文体</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-23" class="cat_23" title="儿童">
-              <i></i><span>儿童</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-24" class="cat_24" title="家电">
-              <i></i><span>家电</span>
-            </a>
-            <a href="http://www.jiuky.com/cat-25" class="cat_25" title="其它">
-              <i></i><span>其它</span>
+            <a :key="index" v-for="(item, index) in cates"   href="javascript:void(0)" :class="item.class" :title="item.name" @mouseenter="changeStyle('enter', index)" @mouseleave="changeStyle('out', index)" ref="menuItem" @click="goUrl(item.url, item.mid)">
+              <i :style="{backgroundPositionX:item.x + 'px', backgroundPositionY:item.y + 'px'}"></i><span>{{item.name}}</span>
             </a>
           </div>
         </div>
@@ -416,7 +374,40 @@ export default {
         pageSize: 52, // 每页显示多少条
         pageSizes: [52, 100]
       },
-      layout: 'sizes,prev,pager,next,jumper'
+      layout: 'sizes,prev,pager,next,jumper',
+      // https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
+      // 聚划算 32366 满减  31371 开团 31370 预热   
+      // 天猫超市 27160  27162  27161
+      // 天猫国际 37088 37089  30015 30014  30013
+      // 淘抢购  34616
+      // 天天特卖 31362
+      // 有好货相关 4092
+      // 好券直播 3756 3767 3758 3759 3762 3763  3764 3765 3760 3761 3766
+      // 实时热销榜 28026 28029 28027 28028
+      // 本地化生活 30443 19812 25378 28636 29105 25885 25886 25888 25890 26077 27913 27914 19811 19810 28888 19814 28397
+      // 大额券 27446 27448 27451	27453 27798 27454
+      // 高佣榜 13366 13367 13368 13369 13370 13371 13372 13373 13374 13375 13376
+      // 品牌券 3786 3788 3792 3793 3796 3794 3790 3787 3789 3791 3795
+      // 母婴主题 4040 4041 4044 4042 4043 4045
+      // 潮流范 4093 
+      // 特惠 4094
+      // 相似推荐 13256
+      // 猜你喜欢 6708  28017
+      // 选品库  31519 31539	 
+      material_ids: [],
+      cates: [
+        { name: '女装', url: 'home', class: 'cat_6', y: 3, x: 0, mid: 13367 },
+        { name: '男装', url: 'home', class: 'cat_7', y: -38, x: 0, mid: 13372 },
+        { name: '鞋包', url: 'home', class: 'cat_8', y: -76, x: 0, mid: 13370 },
+        { name: '内衣', url: 'home', class: 'cat_9', y: -114, x: 0, mid: 13373 },
+        { name: '美食', url: 'home', class: 'cat_10', y: -152, x: 0, mid: 13375 },
+        { name: '美妆', url: 'home', class: 'cat_11', y: -190, x: 0, mid: 13371 },
+        { name: '母婴', url: 'home', class: 'cat_12', y: -228, x: 0, mid: 13374 },
+        { name: '数码', url: 'home', class: 'cat_13', y: -266, x: 0, mid: 13369 },
+        { name: '运动', url: 'home', class: 'cat_26', y: -304, x: 0, mid: 13376 },
+        { name: '居家', url: 'home', class: 'cat_14', y: -342, x: 0, mid: 13368 }
+      ],
+      left: '' 
     }
   },
   computed: {
@@ -427,6 +418,11 @@ export default {
   },
   mounted () {
     if (process.client) {
+      this.handleList() // 获取列表详情
+    }
+  },
+  watch: {
+    '$route' (to, from) {
       this.handleList() // 获取列表详情
     }
   },
@@ -460,24 +456,43 @@ export default {
     },
     // 列表接口
     handleList () {
+      var mid = 31362
+      if (this.$route.query.mid) {
+        mid = this.$route.query.mid
+      }
       this.tableLoading = true
       var params = {
         page: this.tablePage,
         limit: this.page.pageSize,
-        material_id: 4092
+        material_id: mid
       }
       this.$store.dispatch('tbk/TbkMaterialListGet', params).then((res) => {
-        console.log(res)
+        // console.log(res)
         if (res.tbk_dg_optimus_material_response) {
           this.tableData = res.tbk_dg_optimus_material_response.result_list.map_data
           this.tableLoading = false
-          this.page.total = 150
+          this.page.total = 200
           this.page.currentPage = this.tablePage
         }
       })
       .catch((err) => {
         console.log(err)
         this.tableLoading = false
+      })
+    },
+    changeStyle (params, index) {
+      if (params == 'enter') {
+        this.cates[index].x = -40
+      } else {
+        this.cates[index].x = 0
+      }
+    },
+    goUrl (url, mid) {
+      this.$router.push({
+        path: url,
+        query: {
+          mid: mid
+        }
       })
     }
   }
