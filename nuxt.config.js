@@ -15,7 +15,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
  router: {
-    base:"/dist",
+    base:"/",
     // middleware: ['browserVersion']
   },
   head: {
