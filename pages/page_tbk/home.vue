@@ -8,13 +8,13 @@
             <a href="">登录</a>
           </li> -->
           <li class="coubei_s">
-            <a href="" target="_blank" class="last" id="merchant" style="color: red">卖家报名</a>
+            <a href="javascript:void(0)" class="last" id="merchant" style="color: red">卖家报名</a>
           </li>
         </ul>
         <div class="mod_topmenu fl">
           <ul class="mod_hlist">
-            <li><a href="" title="九块邮">九块邮</a></li>
-            <li><a href="" target="_blank">消费保障</a></li>
+            <li><a href="javascript:void(0)" title="九块邮">九块邮</a></li>
+            <li><a href="javascript:void(0)">消费保障</a></li>
           </ul>
         </div>
       </div>
@@ -79,17 +79,17 @@
             <ul class="cat_list clearfix_f"></ul>
           </li>
           <li class="menu_on">
-            <a class="lbl_m" href="http://www.jiuky.com/">首页<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 31362)">首页<i></i></a>
           </li>
-          <li class=""><a class="lbl_m" href="http://www.jiuky.com/goods/nine">9.9包邮<i></i></a></li>
+          <li class=""><a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4094)">特惠<i></i></a></li>
           <li class="">
-            <a class="lbl_m" href="http://www.jiuky.com/goods/nineteen">19.9包邮<i></i></a>
-          </li>
-          <li class="">
-            <a class="lbl_m" href="http://www.jiuky.com/goods/jingpin">精品折扣<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 32366)">聚划算<i></i></a>
           </li>
           <li class="">
-            <a class="lbl_m" href="/quan" target="_blank">查优惠券<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4092)">精品折扣<i></i></a>
+          </li>
+          <li class="">
+            <a class="lbl_m" href="javascript:void(0)"  @click="goUrl('home', 3795)">优惠券<i></i></a>
           </li>
         </ul>
       </div>
@@ -151,17 +151,8 @@
       <h2 class="tle"><span class="ico2"></span>人气推荐单品</h2>
       <!--//分类带图标开始-->
       <div class="topbar_link">
-        <a class="on" href="#">全部</a>
-        <a href="cat-6"><i class="cat_1"></i>女装</a>
-        <a href="cat-7"><i class="cat_2"></i>男装</a>
-        <a href="cat-8"><i class="cat_3"></i>鞋包</a>
-        <a href="cat-9"><i class="cat_4"></i>配饰</a>
-        <a href="cat-10"><i class="cat_5"></i>美食</a>
-        <a href="cat-11"><i class="cat_6"></i>美妆</a>
-        <a href="cat-12"><i class="cat_7"></i>母婴</a>
-        <a href="cat-13"><i class="cat_8"></i>数码</a>
-        <a href="cat-14"><i class="cat_9"></i>居家</a>
-        <a href="cat-15"><i class="cat_10"></i>文体</a>
+        <a class="on" href="javascript:void(0)">全部</a>
+        <a href="javascript:void(0)" v-for="(item, index) in cates" :key="index" @click="goUrl(item.url, item.mid)"><i :class="'cat_'+(index+1)"></i>{{item.name}}</a>
       </div>
     </div>
 
@@ -286,9 +277,9 @@
 
           <div class="info_text">
             <p>
-              <a href="###" target="_blank">九块邮官网</a>
-              九块邮旗下品牌 Rights Reserved 九块邮官网 Copyright @ 2014-2016
-              jiuky.com <br />
+              <a href="javascript:void(0)">九块邮官网</a>
+              九块邮旗下品牌 Rights Reserved 九块邮官网 Copyright @ 2020
+              <br />
             </p>
             <p style="display: none"></p>
           </div>
@@ -305,13 +296,7 @@
           <dl class="link_company left_f">
             <dt class="mb10">关于我们</dt>
             <dd class="lh20">
-              <a href="###">关于我们</a>
-            </dd>
-            <dd class="lh20">
-              <a href="###">帮助中心</a>
-            </dd>
-            <dd class="lh20">
-              <a href="###">商务合作</a>
+              <a href="javascript:void(0)">关于我们</a>
             </dd>
           </dl>
           <!-- <dl class="link_company left_f">
@@ -329,13 +314,10 @@
           <dl class="link_company left_f">
             <dt class="mb10">网站导航</dt>
             <dd class="lh20">
-              <a href="###" target="_blank">九块邮</a>
+              <a href="javascript:void(0)">九块邮</a>
             </dd>
             <dd class="lh20">
-              <a href="###" target="_blank">9.9包邮</a>
-            </dd>
-            <dd class="lh20">
-              <a href="###" target="_blank">九块九包邮</a>
+              <a href="javascript:void(0)">九块九包邮</a>
             </dd>
           </dl>
         </div>
@@ -348,11 +330,11 @@
         <div class="links_list_box">
           <ul class="links_list" style="margin-top: -17px">
             <li>
-              <a href="###" target="_blank">九块邮官网</a>
+              <a href="javascript:void(0)">九块邮官网</a>
             </li>
           </ul>
         </div>
-        <a href="###" target="_blank" class="more">更多&gt;&gt;</a>
+        <a href="javascript:void(0)" class="more">更多&gt;&gt;</a>
       </div>
     </div>
   </div>
