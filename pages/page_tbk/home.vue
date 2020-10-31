@@ -78,17 +78,17 @@
             <span>全部商品分类</span>
             <ul class="cat_list clearfix_f"></ul>
           </li>
-          <li class="menu_on">
+          <li :class="{menu_on: clickIndex === 0}">
             <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 31362)">首页<i></i></a>
           </li>
-          <li class=""><a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4094)">特惠<i></i></a></li>
-          <li class="">
+          <li :class="{menu_on: clickIndex === 1}"><a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4094)">特惠<i></i></a></li>
+          <li :class="{menu_on: clickIndex === 2}">
             <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 32366)">聚划算<i></i></a>
           </li>
-          <li class="">
+          <li :class="{menu_on: clickIndex === 3}">
             <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4092)">精品折扣<i></i></a>
           </li>
-          <li class="">
+          <li :class="{menu_on: clickIndex === 4}">
             <a class="lbl_m" href="javascript:void(0)"  @click="goUrl('home', 3795)">优惠券<i></i></a>
           </li>
         </ul>
@@ -128,13 +128,13 @@
       <ul id="banner_list" class="banner">
         <!-- 轮换图 -->
         <li style="display: list-item">
-          <a href="goods/nine" style="background: url(./upload/2019/03/16/21/20190316211335979.jpg) center no-repeat;" class="pic" alt="9.9包邮" title="9.9包邮"></a>
+          <a href="https://s.click.taobao.com/Ym36suu" class="pic item1" alt="9.9包邮" title="9.9包邮"></a>
         </li>
         <li style="display: none">
-          <a href="/quan/" style="background: url(./upload/2016/11/20/21/20161120214517246.jpg) center no-repeat;" class="pic" alt="淘宝优惠券" title="淘宝优惠券"></a>
+          <a href="https://s.click.taobao.com/uq5Cpuu" class="pic item2" alt="淘宝优惠券" title="淘宝优惠券"></a>
         </li>
         <li style="display: none">
-          <a href="/quan/" style="background: url(./upload/2019/03/16/21/20190316211049242.png) center no-repeat;" class="pic" alt="隐藏优惠券" title="隐藏优惠券"></a>
+          <a href="https://s.click.taobao.com/uHe5suu" class="pic item3" alt="隐藏优惠券" title="隐藏优惠券"></a>
         </li>
       </ul>
     </div>
@@ -347,6 +347,8 @@ export default {
   name: 'homeIndex',
   data () {
     return {
+      imgSrc: require('../../static/img/1.jpg'),
+      clickIndex: 0,
       tableData: [],
       tablePage: 1,
       tableLoading: false,
@@ -476,6 +478,17 @@ export default {
           mid: mid
         }
       })
+      if (mid === 4094) {
+        this.clickIndex = 1
+      } else if (mid === 32366) {
+        this.clickIndex = 2
+      } else if (mid === 4092) {
+        this.clickIndex = 3
+      } else if (mid === 3795) {
+        this.clickIndex = 4
+      } else {
+        this.clickIndex = 0
+      }
     }
   }
 }
@@ -614,6 +627,16 @@ export default {
 
   .main_new {
     width: 1200px !important;
+  }
+
+  .item1{
+    background: url(../../static/img/1.jpg) center no-repeat;
+  }
+  .item2{
+    background: url(../../static/img/2.jpg) center no-repeat;
+  }
+  .item3{
+    background: url(../../static/img/3.jpg) center no-repeat;
   }
 }
 </style>
