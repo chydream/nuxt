@@ -60,7 +60,7 @@
           <!-- <a href="app" style="background: url('/home/template/jiuky/static/images/index/duihao.png') no-repeat 10px 11px;padding-left: 31px;">手机APP下载</a> -->
           <div id="sign_panel">
             <li class="qiandao">
-              <a href="javascript:;" class="signin"><span class="sign_txt"><em class="icon-sign"></em>签到领积分</span></a>
+              <a href="javascript:;" class="signin"><span class="sign_txt"><em class="icon-sign"></em>九块邮</span></a>
               <!-- <div class="sign-mod">
                 <div class="sign-count"><em>0</em><i></i></div>
                 <p class="rtxt">签到即可获得<em class="red_f">1积分</em>积分</p>
@@ -127,14 +127,8 @@
     <div class="top_bar">
       <ul id="banner_list" class="banner">
         <!-- 轮换图 -->
-        <li style="display: list-item">
-          <a href="https://s.click.taobao.com/Ym36suu" class="pic item1" alt="9.9包邮" title="9.9包邮"></a>
-        </li>
-        <li style="display: none">
-          <a href="https://s.click.taobao.com/uq5Cpuu" class="pic item2" alt="淘宝优惠券" title="淘宝优惠券"></a>
-        </li>
-        <li style="display: none">
-          <a href="https://s.click.taobao.com/uHe5suu" class="pic item3" alt="隐藏优惠券" title="隐藏优惠券"></a>
+        <li style="display: list-item" v-for="(item, index) in imgList" :key="index">
+          <a :href="item.url" class="pic" :class="item.class" :alt="item.alt" :title="item.title"></a>
         </li>
       </ul>
     </div>
@@ -391,7 +385,12 @@ export default {
         { name: '运动', url: 'home', class: 'cat_26', y: -304, x: 0, mid: 13376 },
         { name: '居家', url: 'home', class: 'cat_14', y: -342, x: 0, mid: 13368 }
       ],
-      left: '' 
+      left: '',
+      imgList: [
+        { url: 'https://s.click.taobao.com/Ym36suu', class: 'item1', alt: '9.9包邮', title: '9.9包邮' },
+        { url: 'https://s.click.taobao.com/uq5Cpuu', class: 'item1', alt: '淘宝优惠券', title: '淘宝优惠券' },
+        { url: 'https://s.click.taobao.com/uHe5suu', class: 'item1', alt: '隐藏优惠券', title: '隐藏优惠券' }
+      ] 
     }
   },
   computed: {
@@ -529,7 +528,7 @@ export default {
     line-height: 40px;
     text-align: center;
     font-size: 14px;
-    color: #fff;
+    // color: #fff;
     padding: 0px 10px;
   }
 
@@ -630,13 +629,13 @@ export default {
   }
 
   .item1{
-    background: url(../../static/img/1.jpg) center no-repeat;
+    background: url(../../static/img/3.png) center no-repeat;
   }
   .item2{
-    background: url(../../static/img/2.jpg) center no-repeat;
+    background: url(../../static/img/2.png) center no-repeat;
   }
   .item3{
-    background: url(../../static/img/3.jpg) center no-repeat;
+    background: url(../../static/img/1.png) center no-repeat;
   }
 }
 </style>

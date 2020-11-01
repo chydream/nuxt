@@ -1052,7 +1052,8 @@
 	width: 121px;
 	z-index: 1;
 	background: #f7f4ee;
-	overflow: hidden;
+  overflow: hidden;
+  display: none;
 }
 
 .top_wrap .banner_r dl dd {
