@@ -354,8 +354,8 @@ export default {
       page: {
         total: 1, // 总页数
         currentPage: 1, // 当前页数
-        pageSize: 52, // 每页显示多少条
-        pageSizes: [52, 100]
+        pageSize: 48, // 每页显示多少条
+        pageSizes: [48, 100]
       },
       layout: 'sizes,prev,pager,next,jumper',
       // https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
@@ -511,7 +511,11 @@ export default {
           //   })
           // }, 1000)
           this.tableLoading = false
-          this.page.total = 200
+          if (this.tableData.length < this.page.pageSize) {
+            this.page.total = this.page.pageSize * this.tablePage + this.tableData.length
+          } else {
+            this.page.total = this.page.pageSize * (this.tablePage + 1)
+          }
           this.page.currentPage = this.tablePage
         }
       })
