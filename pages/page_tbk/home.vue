@@ -44,7 +44,7 @@
         <!--//搜索-->
         <div class="right_f mod_searchfull" style="position: absolute; right: 122px">
           <div class="mod_search" id="islistshow_new" type="mall">
-            <form action="http://www.jiuky.com/" method="GET" class="headersearch">
+            <form action="" method="GET" class="headersearch">
               <div class="mod_search_bd left_f">
                 <input search_type="mall" type="text" class="ipt_search" name="keyword" placeholder="请输入您要找的9.9包邮宝贝" autocomplete="off" id="mall_searchtext" search="searchtext" value=""/>
               </div>
