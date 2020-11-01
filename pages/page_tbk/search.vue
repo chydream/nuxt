@@ -202,7 +202,7 @@
           </p>
           <div class="info-goods">
             <span title="价格" class="f-18">¥</span>
-            <span class="f-14">{{ item.zk_final_price }}</span>
+            <span class="f-14">{{ item.reserve_price }}</span>
             <div title="折扣" class="pold" style="margin-left: 3px">
               <span class="pnum"> {{ item.commission_rate }}折</span><br /><s>原价¥{{item.reserve_price}}</s>
             </div>
@@ -357,7 +357,7 @@ export default {
         pageSize: 48, // 每页显示多少条
         pageSizes: [48, 100]
       },
-      layout: 'sizes,prev,pager,next,jumper',
+      layout: 'prev,pager,next',
       // https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
       // 聚划算 32366 满减  31371 开团 31370 预热   
       // 天猫超市 27160  27162  27161
@@ -512,7 +512,7 @@ export default {
           // }, 1000)
           this.tableLoading = false
           if (this.tableData.length < this.page.pageSize) {
-            this.page.total = this.page.pageSize * this.tablePage + this.tableData.length
+            this.page.total = this.page.pageSize * (this.tablePage - 1) + this.tableData.length
           } else {
             this.page.total = this.page.pageSize * (this.tablePage + 1)
           }

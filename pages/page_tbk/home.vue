@@ -356,7 +356,7 @@ export default {
         pageSize: 48, // 每页显示多少条
         pageSizes: [48, 100]
       },
-      layout: 'prev,next',
+      layout: 'prev,pager,next',
       // https://market.m.taobao.com/app/qn/toutiao-new/index-pc.html#/detail/10628875?_k=gpov9a
       // 聚划算 32366 满减  31371 开团 31370 预热   
       // 天猫超市 27160  27162  27161
@@ -523,7 +523,7 @@ export default {
           }, 1000)
           this.tableLoading = false
           if (this.tableData.length < this.page.pageSize) {
-            this.page.total = this.page.pageSize * this.tablePage + this.tableData.length
+            this.page.total = this.page.pageSize * (this.tablePage - 1) + this.tableData.length
           } else {
             this.page.total = this.page.pageSize * (this.tablePage + 1)
           }
