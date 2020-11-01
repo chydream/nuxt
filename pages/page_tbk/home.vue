@@ -25,12 +25,13 @@
         <!--logo-->
         <div class="left_f mod_logo">
           <h1>
-            <a href="http://www.jiuky.com" title="九块邮" class="mod_logo_index" style="background: url('./upload/2016/06/26/22/20160626223439350.png') no-repeat;"><span class="hidden">九块邮官网</span></a>
-            <!-- <a href="https://temai.taobao.com/?pid=mm_49594033_7490956_28816883" title="九块九包邮特卖" rel="nofollow"><img src="/home/template/jiuky/static/images/index/donghua.jpg" alt="动画标志" /></a> -->
+            <!-- <a href="http://www.jiuky.com" title="九块邮" class="mod_logo_index" style="background: url('./upload/2016/06/26/22/20160626223439350.png') no-repeat;"><span class="hidden">九块邮官网</span></a> -->
+            <a href="###" title="九块九包邮特卖" rel="nofollow"><img :src="logo" alt="动画标志" /></a>
+            <!-- <a href="###" title="九块九包邮特卖" rel="nofollow"><img :src="logo1" alt="动画标志" /></a> -->
           </h1>
         </div>
         <a href="javascript:void(0);" target="_blank" style="display: block;float: left;margin-top: 30px;position: absolute;right: 375px;">
-          <!-- <img width="368" height="30" src="" alt="消费保障图片" title="九块九包邮" /> -->
+          <img width="368" height="30" :src="imgSrc" alt="消费保障图片" title="九块九包邮" />
         </a>
 
         <a href="http://www.jiuky.com/business" target="_blank" class="fr" style="margin-top: -25px; margin-left: 48px">
@@ -79,7 +80,7 @@
             <ul class="cat_list clearfix_f"></ul>
           </li>
           <li :class="{menu_on: clickIndex === 0}">
-            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 31362)">首页<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', null)">首页<i></i></a>
           </li>
           <li :class="{menu_on: clickIndex === 1}"><a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4094)">特惠<i></i></a></li>
           <li :class="{menu_on: clickIndex === 2}">
@@ -118,7 +119,7 @@
         </div>
         <div class="round">
           <div class="adType">
-            <a class="current"></a><a class=""></a><a class=""></a>
+            <a :class="{current: activeIndex === index}" v-for="(item, index) in imgList" :key="index" @click="setIndex(index)"></a>
           </div>
         </div>
       </div>
@@ -127,7 +128,7 @@
     <div class="top_bar">
       <ul id="banner_list" class="banner">
         <!-- 轮换图 -->
-        <li style="display: list-item" v-for="(item, index) in imgList" :key="index">
+        <li :style="{opacity: activeIndex === index ? 1: 0}" v-for="(item, index) in imgList" :key="index">
           <a :href="item.url" class="pic" :class="item.class" :alt="item.alt" :title="item.title"></a>
         </li>
       </ul>
@@ -220,7 +221,7 @@
           <div class="newdeal">
             <div class="newdeal-left">
               <i class="time"></i>
-              <span class="fsettime">结束时间：{{ item.coupon_end_time }}</span>
+              <span class="fsettime">{{ item.leftTime }}</span>
             </div>
             <a title="领券抢购" :href="item.coupon_click_url" target="_blank" class="go-buy tmall-buy" rel="nofollow">领券抢购</a>
             <div class="newdeal-right">
@@ -337,11 +338,15 @@
 <script>
 // import cvueTable from '@/components/cvue-table'
 import { getClientHeight } from '@/util/tool'
+var timer = null
+var leftTimer = null
 export default {
   name: 'homeIndex',
   data () {
     return {
-      imgSrc: require('../../static/img/1.jpg'),
+      imgSrc: require('../../static/img/links.png'),
+      logo: require('../../static/img/logo.png'),
+      logo1: require('../../static/img/logo1.png'),
       clickIndex: 0,
       tableData: [],
       tablePage: 1,
@@ -388,9 +393,11 @@ export default {
       left: '',
       imgList: [
         { url: 'https://s.click.taobao.com/Ym36suu', class: 'item1', alt: '9.9包邮', title: '9.9包邮' },
-        { url: 'https://s.click.taobao.com/uq5Cpuu', class: 'item1', alt: '淘宝优惠券', title: '淘宝优惠券' },
-        { url: 'https://s.click.taobao.com/uHe5suu', class: 'item1', alt: '隐藏优惠券', title: '隐藏优惠券' }
-      ] 
+        { url: 'https://s.click.taobao.com/uq5Cpuu', class: 'item2', alt: '淘宝优惠券', title: '淘宝优惠券' },
+        { url: 'https://s.click.taobao.com/uHe5suu', class: 'item3', alt: '隐藏优惠券', title: '隐藏优惠券' }
+      ],
+      activeIndex: 0,
+      index: 0
     }
   },
   computed: {
@@ -402,6 +409,18 @@ export default {
   mounted () {
     if (process.client) {
       this.handleList() // 获取列表详情
+      if (timer) {
+        clearInterval(timer)
+        timer = null
+      }
+      timer = setInterval(() => {
+        if (this.index <= 2) {
+          this.activeIndex = this.index
+          this.index++
+        } else {
+          this.index = 0
+        }
+      }, 5000)
     }
   },
   watch: {
@@ -419,6 +438,27 @@ export default {
     }
   },
   methods: {
+    setTime (time) {
+      var left = new Date(Number(time))
+      var y = left.getFullYear()
+      var m = left.getMonth() + 1
+      var d = left.getDate()
+      var h = left.getHours()
+      var M = left.getMinutes()
+      var s = left.getSeconds()
+      return y + '-' + m + '-' + d + ' ' + h + ':' + M + ':' + s
+    },
+    forNum (num) {
+      if (num < 10) {
+        return '0' + num
+      } else {
+        return num
+      }
+    },
+    setIndex (index) {
+      this.activeIndex = index
+      this.index = index
+    },
     accSub (arg1, arg2) {
       var r1, r2, m, n
       try { r1 = arg1.toString().split('.')[1].length } catch (e) { r1 = 0 }
@@ -453,6 +493,27 @@ export default {
         // console.log(res)
         if (res.tbk_dg_optimus_material_response) {
           this.tableData = res.tbk_dg_optimus_material_response.result_list.map_data
+          if (leftTimer) {
+            clearInterval(leftTimer)
+            leftTimer = null
+          }
+          leftTimer = setInterval(() => {
+            var now = (new Date()).getTime()
+            this.tableData.forEach((item, index) => {
+              var end = item.coupon_end_time
+              var diff = end - now
+              if (item.coupon_end_time && diff >= 0) {
+                var d = Math.floor(diff / (1000 * 60 * 60 * 24))
+                var h = Math.floor(diff / (1000 * 60 * 60) % 24)
+                var m = Math.floor(diff / (1000 * 60) % 60)
+                var s = Math.floor(diff / 1000 % 60)
+                var left = '剩余' + d + '天' + ' ' + this.forNum(h) + ':' + this.forNum(m) + ':' + this.forNum(s)
+                this.$set(item, 'leftTime', left)
+              } else {
+                this.$set(item, 'leftTime', '')
+              }
+            })
+          }, 1000)
           this.tableLoading = false
           this.page.total = 200
           this.page.currentPage = this.tablePage
@@ -471,12 +532,19 @@ export default {
       }
     },
     goUrl (url, mid) {
-      this.$router.push({
-        path: url,
-        query: {
-          mid: mid
-        }
-      })
+      if (mid) {
+        this.$router.push({
+          path: url,
+          query: {
+            mid: mid
+          }
+        })
+      } else {
+        this.$router.push({
+          path: url
+        })
+      }
+  
       if (mid === 4094) {
         this.clickIndex = 1
       } else if (mid === 32366) {

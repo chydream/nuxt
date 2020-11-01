@@ -1011,7 +1011,16 @@
 
 .top_bar .banner li {
 	float: left;
-	width: 100%;
+  width: 100%;
+  transition: all ease 2s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* animation:fadeIn 0.5s ease-in-out 1s forwards;
+  -moz-animation:fadeIn 0.5s ease-in-out 1s forwards;
+  -o-animation:fadeIn 0.5s ease-in-out 1s forwards;
+  -webkit-animation:fadeIn 0.5s ease-in-out 1s forwards;
+  -ms-animation:fadeIn 0.5s ease-in-out 1s forwards; */
 }
 
 .top_bar .banner .pic {
@@ -1537,4 +1546,73 @@ address, cite, dfn, em, var, i {
 
 .container .right_hot ul li .info {
 	padding: 6px 5px;
+}
+
+@-webkit-keyframes fadeIn{
+  0% {
+      opacity:0
+  }
+  25% {
+      opacity:0.1
+  }
+  50% {
+      opacity:0.3
+  }
+  75% {
+      opacity:0.6
+  }
+  100% {
+      opacity:1
+  }
+}
+@-moz-keyframes fadeIn{
+  0% {
+      opacity:0
+  }
+  25% {
+      opacity:0.1
+  }
+  50% {
+      opacity:0.3
+  }
+  75% {
+      opacity:0.6
+  }
+  100% {
+      opacity:1
+  }
+}
+@-ms-keyframes fadeIn{
+  0% {
+      opacity:0
+  }
+  25% {
+      opacity:0.1
+  }
+  50% {
+      opacity:0.3
+  }
+  75% {
+      opacity:0.6
+  }
+  100% {
+      opacity:1
+  }
+}
+@keyframes fadeIn {
+  0% {
+      opacity:0
+  }
+  25% {
+      opacity:0.1
+  }
+  50% {
+      opacity:0.3
+  }
+  75% {
+      opacity:0.6
+  }
+  100% {
+      opacity:1
+  }
 }
