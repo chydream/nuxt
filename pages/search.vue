@@ -44,10 +44,12 @@
         <!--//搜索-->
         <div class="right_f mod_searchfull" style="position: absolute; right: 122px">
           <div class="mod_search" id="islistshow_new" type="mall">
-             <div class="mod_search_bd left_f">
-                <input search_type="mall" type="text" class="ipt_search" name="keyword" placeholder="请输入您要找的9.9包邮宝贝" autocomplete="off" id="mall_searchtext" search="searchtext" v-model="keyword"/>
+            <form action="" method="GET" class="headersearch">
+              <div class="mod_search_bd left_f">
+                <input search_type="mall" type="text" class="ipt_search" name="keyword" placeholder="请输入您要找的9.9包邮宝贝" autocomplete="off" id="mall_searchtext" search="searchtext" value=""/>
               </div>
-              <button class="ico_gb ico_search left_f" title="搜索" @click="searchData"></button>
+              <button class="ico_gb ico_search left_f" type="submit" title="搜索"></button>
+            </form>
           </div>
         </div>
       </div>
@@ -188,32 +190,32 @@
         <a class="my-like" onclick="goodsfav('16340524')" title="加入收藏">
           <i class="like-ico"><span class="heart_left"></span><span class="heart_right"></span></i>
         </a>
-        <a :href="item.click_url" target="_blank">
+        <a :href="item.url" target="_blank">
           <img class="shop-img lazy" :src="item.pict_url" data-original="" :alt="item.title" rel="nofollow" style="display: inline"/>
           <div class="clear_f"></div>
         </a>
         <div class="goods-detail">
           <p class="name-goods">
-            <a :href="item.click_url" target="_blank" :title="item.title">
+            <a :href="item.url" target="_blank" :title="item.title">
               {{item.title}}
             </a>
           </p>
           <div class="info-goods">
             <span title="价格" class="f-18">¥</span>
-            <span class="f-14">{{ accSub(item.zk_final_price , item.coupon_amount)}}</span>
+            <span class="f-14">{{ item.reserve_price }}</span>
             <div title="折扣" class="pold" style="margin-left: 3px">
-              <span class="pnum"> {{ item.commission_rate }}折</span><br /><s>原价¥{{item.zk_final_price}}</s>
+              <span class="pnum"> {{ item.commission_rate }}折</span><br /><s>原价¥{{item.reserve_price}}</s>
             </div>
             <div class="pold" style="float: right; text-align: right; margin-right: 5px">
               <span class="pnum" :class="{'pnum_tmall': item.user_type === 1, 'pnum_taobao': item.user_type === 0}"> </span><br />
-              <span class="sale-title">
+              <!-- <span class="sale-title">
                 <i class="icon icon-pJuan">领券</i>
                 <a :href="item.coupon_click_url" target="_blank" num_iid="543154898533" rel="nofollow">
                   <span class="sale-title-font pline">
                     <em>{{item.coupon_amount}}元券</em>
                   </span>
                 </a>
-              </span>
+              </span> -->
             </div>
           </div>
           <div class="newdeal">
@@ -227,9 +229,9 @@
             </div>
           </div>
           <div class="quanhoujiage"></div>
-          <a :href="item.coupon_click_url" target="_blank"  rel="nofollow">
+          <!-- <a :href="item.coupon_click_url" target="_blank"  rel="nofollow">
             <span class="qg-img-tag"><em>{{item.coupon_amount}}元</em></span>
-          </a>
+          </a> -->
         </div>
       </div>
     </div>
@@ -342,10 +344,9 @@ export default {
   name: 'homeIndex',
   data () {
     return {
-      keyword: '',
-      imgSrc: require('../../static/img/links.png'),
-      logo: require('../../static/img/logo.png'),
-      logo1: require('../../static/img/logo1.png'),
+      imgSrc: require('../static/img/links.png'),
+      logo: require('../static/img/logo.png'),
+      logo1: require('../static/img/logo1.png'),
       clickIndex: 0,
       tableData: [],
       tablePage: 1,
@@ -437,14 +438,6 @@ export default {
     }
   },
   methods: {
-    searchData () {
-       this.$router.push({
-          path: 'search',
-          query: {
-            keyword: this.keyword
-          }
-        })
-    },
     setTime (time) {
       var left = new Date(Number(time))
       var y = left.getFullYear()
@@ -486,48 +479,43 @@ export default {
     },
     // 列表接口
     handleList () {
-      var mid = 31362
-      if (this.$route.query.mid) {
-        mid = this.$route.query.mid
-      }
       this.tableLoading = true
       var params = {
         page: this.tablePage,
         limit: this.page.pageSize,
-        material_id: mid
+        keyword: this.$route.query.keyword
       }
-      this.$store.dispatch('tbk/TbkMaterialListGet', params).then((res) => {
-        // console.log(res)
-        if (res.tbk_dg_optimus_material_response) {
-          this.tableData = res.tbk_dg_optimus_material_response.result_list.map_data
-          if (leftTimer) {
-            clearInterval(leftTimer)
-            leftTimer = null
-          }
-          leftTimer = setInterval(() => {
-            var now = (new Date()).getTime()
-            this.tableData.forEach((item, index) => {
-              var end = item.coupon_end_time
-              var diff = end - now
-              if (item.coupon_end_time && diff >= 0) {
-                var d = Math.floor(diff / (1000 * 60 * 60 * 24))
-                var h = Math.floor(diff / (1000 * 60 * 60) % 24)
-                var m = Math.floor(diff / (1000 * 60) % 60)
-                var s = Math.floor(diff / 1000 % 60)
-                var left = '剩余' + d + '天' + ' ' + this.forNum(h) + ':' + this.forNum(m) + ':' + this.forNum(s)
-                this.$set(item, 'leftTime', left)
-              } else {
-                this.$set(item, 'leftTime', '')
-              }
-            })
-          }, 1000)
+      this.$store.dispatch('tbk/TbkProductListGet', params).then((res) => {
+        console.log(res)
+        if (res.tbk_dg_material_optional_response) {
+          this.tableData = res.tbk_dg_material_optional_response.result_list.map_data
+          // if (leftTimer) {
+          //   clearInterval(leftTimer)
+          //   leftTimer = null
+          // }
+          // leftTimer = setInterval(() => {
+          //   var now = (new Date()).getTime()
+          //   this.tableData.forEach((item, index) => {
+          //     var end = item.coupon_end_time
+          //     var diff = end - now
+          //     if (item.coupon_end_time && diff >= 0) {
+          //       var d = Math.floor(diff / (1000 * 60 * 60 * 24))
+          //       var h = Math.floor(diff / (1000 * 60 * 60) % 24)
+          //       var m = Math.floor(diff / (1000 * 60) % 60)
+          //       var s = Math.floor(diff / 1000 % 60)
+          //       var left = '剩余' + d + '天' + ' ' + this.forNum(h) + ':' + this.forNum(m) + ':' + this.forNum(s)
+          //       this.$set(item, 'leftTime', left)
+          //     } else {
+          //       this.$set(item, 'leftTime', '')
+          //     }
+          //   })
+          // }, 1000)
           this.tableLoading = false
           if (this.tableData.length < this.page.pageSize) {
             this.page.total = this.page.pageSize * (this.tablePage - 1) + this.tableData.length
           } else {
             this.page.total = this.page.pageSize * (this.tablePage + 1)
           }
-          
           this.page.currentPage = this.tablePage
         }
       })
@@ -574,9 +562,9 @@ export default {
 </script>
 
 <style lang='scss'>
-@import url(../../style/tbk/css/base.css);
-@import url(../../style/tbk/css/common.css);
-@import url(../../style/tbk/css/index_page.css);
+@import url(../style/tbk/css/base.css);
+@import url(../style/tbk/css/common.css);
+@import url(../style/tbk/css/index_page.css);
 .home-index {
   padding: 0px !important;
   height: auto !important;
@@ -709,13 +697,13 @@ export default {
   }
 
   .item1{
-    background: url(../../static/img/3.png) center no-repeat;
+    background: url(../static/img/3.png) center no-repeat;
   }
   .item2{
-    background: url(../../static/img/2.png) center no-repeat;
+    background: url(../static/img/2.png) center no-repeat;
   }
   .item3{
-    background: url(../../static/img/1.png) center no-repeat;
+    background: url(../static/img/1.png) center no-repeat;
   }
 }
 </style>

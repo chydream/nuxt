@@ -15,7 +15,7 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
  router: {
-    base:"/dist",
+    base:"/",
     // middleware: ['browserVersion']
   },
   head: {
@@ -70,12 +70,12 @@ export default {
   ],
   proxy: [
     [
-      '/dist/shares',
+      '/shares',
       {
         target: 'http://127.0.0.1:8900/shares', //目标接口域名
         changeOrigin: true, //是否跨域
         pathRewrite: {
-          '^/dist/shares': ''
+          '^/shares': ''
         }
       }
     ],
