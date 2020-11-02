@@ -80,7 +80,7 @@ export default {
       }
     ],
     [
-      '/dist/tbk',
+      '/tbk',
       {
         target: 'http://127.0.0.1:8900/tbk', //目标接口域名
         changeOrigin: true, //是否跨域

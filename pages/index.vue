@@ -429,10 +429,10 @@ export default {
   },
   head () {
     return {
-      title: '首页',
+      title: '9.9包邮，九块九包邮，天天特价9.9包邮',
       meta: [
-        { hid: 'description', name: 'description', content: '这个是首页' },
-        { hid: 'keywords', name: 'keywords', content: '首页' }
+        { hid: 'description', name: 'description', content: '9.9包邮，九块九包邮，天天特价9.9包邮' },
+        { hid: 'keywords', name: 'keywords', content: '9.9包邮，九块九包邮，天天特价9.9包邮' }
       ]
     }
   },
