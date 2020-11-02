@@ -80,17 +80,17 @@
             <ul class="cat_list clearfix_f"></ul>
           </li>
           <li :class="{menu_on: clickIndex === 0}">
-            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', null)">首页<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('', null)">首页<i></i></a>
           </li>
-          <li :class="{menu_on: clickIndex === 1}"><a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4094)">特惠<i></i></a></li>
+          <li :class="{menu_on: clickIndex === 1}"><a class="lbl_m" href="javascript:void(0)" @click="goUrl('', 4094)">特惠<i></i></a></li>
           <li :class="{menu_on: clickIndex === 2}">
-            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 32366)">聚划算<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('', 32366)">聚划算<i></i></a>
           </li>
           <li :class="{menu_on: clickIndex === 3}">
-            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('home', 4092)">精品折扣<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)" @click="goUrl('', 4092)">精品折扣<i></i></a>
           </li>
           <li :class="{menu_on: clickIndex === 4}">
-            <a class="lbl_m" href="javascript:void(0)"  @click="goUrl('home', 3795)">优惠券<i></i></a>
+            <a class="lbl_m" href="javascript:void(0)"  @click="goUrl('', 3795)">优惠券<i></i></a>
           </li>
         </ul>
       </div>
@@ -379,16 +379,16 @@ export default {
       // 选品库  31519 31539	 
       material_ids: [],
       cates: [
-        { name: '女装', url: 'home', class: 'cat_6', y: 3, x: 0, mid: 13367 },
-        { name: '男装', url: 'home', class: 'cat_7', y: -38, x: 0, mid: 13372 },
-        { name: '鞋包', url: 'home', class: 'cat_8', y: -76, x: 0, mid: 13370 },
-        { name: '内衣', url: 'home', class: 'cat_9', y: -114, x: 0, mid: 13373 },
-        { name: '美食', url: 'home', class: 'cat_10', y: -152, x: 0, mid: 13375 },
-        { name: '美妆', url: 'home', class: 'cat_11', y: -190, x: 0, mid: 13371 },
-        { name: '母婴', url: 'home', class: 'cat_12', y: -228, x: 0, mid: 13374 },
-        { name: '数码', url: 'home', class: 'cat_13', y: -266, x: 0, mid: 13369 },
-        { name: '运动', url: 'home', class: 'cat_26', y: -304, x: 0, mid: 13376 },
-        { name: '居家', url: 'home', class: 'cat_14', y: -342, x: 0, mid: 13368 }
+        { name: '女装', url: '', class: 'cat_6', y: 3, x: 0, mid: 13367 },
+        { name: '男装', url: '', class: 'cat_7', y: -38, x: 0, mid: 13372 },
+        { name: '鞋包', url: '', class: 'cat_8', y: -76, x: 0, mid: 13370 },
+        { name: '内衣', url: '', class: 'cat_9', y: -114, x: 0, mid: 13373 },
+        { name: '美食', url: '', class: 'cat_10', y: -152, x: 0, mid: 13375 },
+        { name: '美妆', url: '', class: 'cat_11', y: -190, x: 0, mid: 13371 },
+        { name: '母婴', url: '', class: 'cat_12', y: -228, x: 0, mid: 13374 },
+        { name: '数码', url: '', class: 'cat_13', y: -266, x: 0, mid: 13369 },
+        { name: '运动', url: '', class: 'cat_26', y: -304, x: 0, mid: 13376 },
+        { name: '居家', url: '', class: 'cat_14', y: -342, x: 0, mid: 13368 }
       ],
       left: '',
       imgList: [
