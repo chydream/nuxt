@@ -1,1 +1,1 @@
-export const baseUrl = '/dist'
+export const baseUrl = '/'
