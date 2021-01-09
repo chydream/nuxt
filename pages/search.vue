@@ -327,6 +327,9 @@
             <li>
               <a href="javascript:void(0)">九块邮官网</a>
             </li>
+            <li>
+              <a href="https://beian.miit.gov.cn/" target="_blank"> 闽ICP备13021832号-1</a>
+            </li>
           </ul>
         </div>
         <a href="javascript:void(0)" class="more">更多&gt;&gt;</a>

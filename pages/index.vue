@@ -321,9 +321,12 @@
       <div class="links">
         <span>友情链接：</span>
         <div class="links_list_box">
-          <ul class="links_list" style="margin-top: -17px">
+          <ul class="links_list" style="margin-top: 0px">
             <li>
               <a href="javascript:void(0)">九块邮官网</a>
+            </li>
+            <li>
+              <a href="https://beian.miit.gov.cn/" target="_blank"> 闽ICP备13021832号-1</a>
             </li>
           </ul>
         </div>
