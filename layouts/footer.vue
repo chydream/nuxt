@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    2020 © copyright | <a href="https://beian.miit.gov.cn/" target="_blank"> 闽ICP备13021832号-1</a>
+    2020 © copyright | <a href="https://beian.miit.gov.cn/" target="_blank" style="color:#fff;"> 闽ICP备13021832号-1</a>
   </div>
 </template>
 
