@@ -11,7 +11,7 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "core-js": "^2.6.11",
     "crypto-js": "^4.0.0",
     "echarts": "^4.9.0",
