@@ -291,6 +291,9 @@
             <dd class="lh20">
               <a href="javascript:void(0)">关于我们</a>
             </dd>
+            <dd>
+              <a href="https://beian.miit.gov.cn/" target="_blank"> 闽ICP备13021832号-1</a>
+            </dd>
           </dl>
           <!-- <dl class="link_company left_f">
             <dt class="mb10">商务合作</dt>
@@ -324,9 +327,6 @@
           <ul class="links_list" style="margin-top: 0px">
             <li>
               <a href="javascript:void(0)">九块邮官网</a>
-            </li>
-            <li>
-              <a href="https://beian.miit.gov.cn/" target="_blank"> 闽ICP备13021832号-1</a>
             </li>
           </ul>
         </div>
